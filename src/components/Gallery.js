@@ -105,6 +105,9 @@ const GalleryImage = styled.div`
   justify-content: center;
   font-size: 4rem;
   background: ${({ $color }) => $color || 'linear-gradient(135deg, #1a365d, #2c5282)'};
+  background-image: ${({ $image }) => $image ? `url(${$image})` : 'none'};
+  background-size: cover;
+  background-position: center;
   transition: transform ${({ theme }) => theme.transitions.slow};
   
   ${GalleryItem}:hover & {
@@ -133,71 +136,19 @@ const GalleryLabel = styled.span`
   font-size: ${({ theme }) => theme.fontSizes.base};
 `;
 
-const IconGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: ${({ theme }) => theme.spacing.xl};
-  margin-top: ${({ theme }) => theme.spacing['3xl']};
-  
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;
-
-const IconCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  padding: ${({ theme }) => theme.spacing.xl};
-  text-align: center;
-  transition: all ${({ theme }) => theme.transitions.normal};
-  
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-  }
-`;
-
-const IconWrapper = styled.div`
-  font-size: 3rem;
-  margin-bottom: ${({ theme }) => theme.spacing.md};
-`;
-
-const IconTitle = styled.h4`
-  color: ${({ theme }) => theme.colors.textWhite};
-  font-size: ${({ theme }) => theme.fontSizes.base};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
-`;
-
-const IconDescription = styled.p`
-  color: rgba(255, 255, 255, 0.6);
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  margin: 0;
-`;
-
 // Gallery items data
 const galleryItems = [
-  { icon: '📚', label: 'Giáo trình', color: 'linear-gradient(135deg, #1a365d, #2c5282)' },
-  { icon: '⚖️', label: 'Quy luật kinh tế', color: 'linear-gradient(135deg, #c53030, #e53e3e)' },
-  { icon: '💰', label: 'Hàng hóa & Tiền tệ', color: 'linear-gradient(135deg, #d69e2e, #ecc94b)' },
-  { icon: '🏭', label: 'Sản xuất', color: 'linear-gradient(135deg, #38a169, #48bb78)' },
-  { icon: '📊', label: 'Thị trường', color: 'linear-gradient(135deg, #3182ce, #4299e1)' },
-  { icon: '🏦', label: 'Tư bản', color: 'linear-gradient(135deg, #553c9a, #6b46c1)' },
-  { icon: '🌐', label: 'Hội nhập', color: 'linear-gradient(135deg, #dd6b20, #ed8936)' },
-  { icon: '🇻🇳', label: 'Việt Nam', color: 'linear-gradient(135deg, #c53030, #d63e3e)' },
+  { icon: '📚', label: 'Giáo trình', color: 'linear-gradient(135deg, #1a365d, #2c5282)', image: 'https://down-vn.img.susercontent.com/file/sg-11134201-824iy-me19rlxvd2bnb0.webp' },
+  { icon: '⚖️', label: 'Quy luật kinh tế', color: 'linear-gradient(135deg, #c53030, #e53e3e)', image: 'https://www.vietnamworks.com/hrinsider/wp-content/uploads/2024/09/quy-luat-kinh-te-la-gi-3-650x478.jpg' },
+  { icon: '💰', label: 'Hàng hóa & Tiền tệ', color: 'linear-gradient(135deg, #d69e2e, #ecc94b)', image: 'https://cdn.luatvietnam.vn/uploaded/Images/Original/2023/03/13/tien-te-la-phuong-tien-de-do-luong-gia-tri-hang-hoa_1303111742.png' },
+  { icon: '🏭', label: 'Sản xuất', color: 'linear-gradient(135deg, #38a169, #48bb78)', image: 'https://pms.edu.vn/wp-content/uploads/2023/11/ket-cau-cua-phuong-thuc-san-xuat.jpg' },
+  { icon: '📊', label: 'Thị trường', color: 'linear-gradient(135deg, #3182ce, #4299e1)', image: 'https://thinkdigital.com.vn/wp-content/uploads/2025/02/thi-truong-la-gi-3.jpg' },
+  { icon: '🏦', label: 'Tư bản', color: 'linear-gradient(135deg, #553c9a, #6b46c1)', image: 'https://file.qdnd.vn/data/images/14/2021/06/10/kienthai/tuban%20luan%20bang%20tranh.jpg?dpi=150&quality=100&w=575' },
+  { icon: '🌐', label: 'Hội nhập', color: 'linear-gradient(135deg, #dd6b20, #ed8936)', image: 'https://bcp.cdnchinhphu.vn/334894974524682240/2025/4/11/hoi-nhap-quoc-te-1744336238273384856591.jpg' },
+  { icon: '🇻🇳', label: 'Việt Nam', color: 'linear-gradient(135deg, #c53030, #d63e3e)', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png' },
 ];
 
-// Icon cards data
-const iconCards = [
-  { icon: '🔍', title: 'Phân tích', description: 'Nghiên cứu quy luật kinh tế' },
-  { icon: '📈', title: 'Phát triển', description: 'Lực lượng sản xuất' },
-  { icon: '⚙️', title: 'Cơ chế', description: 'Vận hành thị trường' },
-  { icon: '🎯', title: 'Định hướng', description: 'XHCN ở Việt Nam' },
-  { icon: '💼', title: 'Doanh nghiệp', description: 'Các thành phần KT' },
-  { icon: '🤝', title: 'Hợp tác', description: 'Hội nhập quốc tế' },
-  { icon: '📊', title: 'Thống kê', description: 'Dữ liệu kinh tế' },
-  { icon: '🔬', title: 'Nghiên cứu', description: 'Lý thuyết Mác-Lênin' },
-];
+
 
 const Gallery = () => {
   return (
@@ -224,7 +175,7 @@ const Gallery = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Các khái niệm và sơ đồ minh họa cho môn học Triết 2
+            Các khái niệm và sơ đồ minh họa cho chương V: Kinh tế thị trường định hướng xã hội chủ nghĩa và các quan hệ lợi ích kinh tế ở Việt Nam
           </SectionDescription>
         </SectionHeader>
 
@@ -238,8 +189,8 @@ const Gallery = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
             >
-              <GalleryImage $color={item.color}>
-                {item.icon}
+              <GalleryImage $color={item.color} $image={item.image}>
+                {!item.image && item.icon}
               </GalleryImage>
               <GalleryOverlay>
                 <GalleryLabel>{item.label}</GalleryLabel>
@@ -247,23 +198,6 @@ const Gallery = () => {
             </GalleryItem>
           ))}
         </GalleryGrid>
-
-        <IconGrid>
-          {iconCards.map((card, index) => (
-            <IconCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
-              whileHover={{ scale: 1.03 }}
-            >
-              <IconWrapper>{card.icon}</IconWrapper>
-              <IconTitle>{card.title}</IconTitle>
-              <IconDescription>{card.description}</IconDescription>
-            </IconCard>
-          ))}
-        </IconGrid>
       </Container>
     </GalleryWrapper>
   );

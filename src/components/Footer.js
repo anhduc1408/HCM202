@@ -65,6 +65,7 @@ const Logo = styled.div`
   }
 `;
 
+// eslint-disable-next-line no-unused-vars
 const LogoIcon = styled.div`
   width: 40px;
   height: 40px;
@@ -88,6 +89,7 @@ const BrandDescription = styled.p`
   margin-bottom: ${({ theme }) => theme.spacing.lg};
 `;
 
+// eslint-disable-next-line no-unused-vars
 const SocialLinks = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing.md};
@@ -97,6 +99,7 @@ const SocialLinks = styled.div`
   }
 `;
 
+// eslint-disable-next-line no-unused-vars
 const SocialLink = styled(motion.a)`
   width: 40px;
   height: 40px;
@@ -219,43 +222,14 @@ const Footer = () => {
         <FooterContent>
           <FooterBrand>
             <Logo>
-              <LogoIcon>T</LogoIcon>
-              Triết <span>2</span>
+             
             </Logo>
             <BrandDescription>
-              Website trình bày nội dung môn Triết 2 – Kinh tế chính trị Mác – Lênin.
-              Tài liệu tham khảo dành cho sinh viên FPT University.
+              Website trình bày nội dung môn MLN122 – Kinh tế chính trị Mác – Lênin.
+              
             </BrandDescription>
-            <SocialLinks>
-              <SocialLink 
-                href="#" 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                📘
-              </SocialLink>
-              <SocialLink 
-                href="#" 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                📸
-              </SocialLink>
-              <SocialLink 
-                href="#" 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                🐦
-              </SocialLink>
-              <SocialLink 
-                href="#" 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                📺
-              </SocialLink>
-            </SocialLinks>
+            
+             
           </FooterBrand>
 
           <FooterColumn>
@@ -275,20 +249,13 @@ const Footer = () => {
               <FooterLink><a href="#competition">Cạnh tranh & Độc quyền</a></FooterLink>
               <FooterLink><a href="#market">KT Thị trường</a></FooterLink>
               <FooterLink><a href="#industrialization">CNH - HĐH</a></FooterLink>
-              <FooterLink><a href="#gallery">Thư viện</a></FooterLink>
             </FooterLinks>
           </FooterColumn>
 
           <FooterColumn>
-            <ColumnTitle>Liên hệ</ColumnTitle>
-            <ContactItem>
-              <span>📧</span>
-              contact@triet2.edu.vn
-            </ContactItem>
-            <ContactItem>
-              <span>📞</span>
-              +84 123 456 789
-            </ContactItem>
+           
+          
+            
             <ContactItem>
               <span>📍</span>
               FPT University, Hà Nội
@@ -302,7 +269,7 @@ const Footer = () => {
 
         <FooterBottom>
           <Copyright>
-            © {currentYear} Triết 2 - Kinh tế chính trị Mác - Lênin. All rights reserved.
+            © {currentYear} MLN122 - Kinh tế chính trị Mác - Lênin. All rights reserved.
           </Copyright>
           <FooterBottomLinks>
             <a href="/privacy">Privacy Policy</a>

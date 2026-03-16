@@ -246,7 +246,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Giáo trình Chính trị
+          Nội dung chinh
         </SubTitle>
 
         <MainTitle
@@ -254,7 +254,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Triết 2
+         
           <span>Kinh tế chính trị Mác – Lênin</span>
         </MainTitle>
 
@@ -284,16 +284,16 @@ const Hero = () => {
             Khám phá ngay →
           </PrimaryButton>
           <SecondaryButton 
-            href="#gallery"
+            href="#quiz"
             onClick={(e) => {
               e.preventDefault();
-              const element = document.querySelector('#gallery');
+              const element = document.querySelector('#quiz');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Xem thư viện
+            Xem Quiz
           </SecondaryButton>
         </ButtonGroup>
       </ContentWrapper>

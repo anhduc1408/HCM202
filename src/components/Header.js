@@ -42,26 +42,20 @@ const Logo = styled(motion.div)`
   color: ${({ $scrolled, theme }) => 
     $scrolled ? theme.colors.primary : theme.colors.textWhite};
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
   
   span {
     color: ${({ theme }) => theme.colors.secondary};
   }
-`;
-
-const LogoIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, 
-    ${({ theme }) => theme.colors.primary}, 
-    ${({ theme }) => theme.colors.secondary}
-  );
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  
+  img {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
 `;
 
 const NavMenu = styled.nav`
@@ -173,7 +167,6 @@ const navItems = [
   { name: 'KT thị trường', href: '#market' },
   { name: 'CNH - HĐH', href: '#industrialization' },
   { name: 'Quiz', href: '#quiz' },
-  { name: 'Thư viện', href: '#gallery' },
 ];
 
 const Header = () => {
@@ -211,9 +204,14 @@ const Header = () => {
             onClick={() => scrollToSection('#home')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{ background: 'transparent', boxShadow: 'none' }}
           >
-            <LogoIcon>T</LogoIcon>
-            Triết <span>2</span>
+            <img 
+              src="https://lh3.googleusercontent.com/proxy/Cx0zJdx79vwUQq69naXdUyai0FOFtnge2bBq1-wX37vgzvvqn6osroCkrR5WGhs2EX2AsKQfjXdpN6QuXWrZNkI5X5CWm5oDTlp-MQe-DW8ksUdiIKR3zYYzip_AuqjpaQNdjIKrfMtPO5AJCZqn_qrcrUohwg" 
+              alt="Logo" 
+              style={{ width: '60px', height: '60px', objectFit: 'contain', background: 'transparent' }} 
+            />
+           
           </Logo>
 
           <NavMenu>

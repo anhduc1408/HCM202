@@ -186,129 +186,189 @@ const ScoreHighlight = styled.span`
   color: ${({ $score, theme }) =>
     $score >= 7 ? '#22c55e' : $score >= 5 ? '#eab308' : '#ef4444'};
 `;
-
 const questions = [
   {
-    id: 1,
-    question: "Theo quan điểm Mác - Lênin, yếu tố nào là quan trọng nhất trong sản xuất?",
-    options: [
-      "A. Tư bản",
-      "B. Sức lao động",
-      "C. Phương tiện sản xuất",
-      "D. Tri thức"
+    "id": 1,
+    "question": "Vì sao cần hoàn thiện thể chế kinh tế thị trường định hướng XHCN ở Việt Nam?",
+    "options": [
+      "A. Do yêu cầu hội nhập quốc tế",
+      "B. Do yêu cầu phát triển bền vững",
+      "C. Do yêu cầu phù hợp quy luật khách quan",
+      "D. Do yêu cầu nâng cao năng lực cạnh tranh"
     ],
-    correct: 1,
-    explanation: "Theo Mác - Lênin, sức lao động là yếu tố quan trọng nhất trong sản xuất vì chỉ có sức lao động mới tạo ra giá trị mới."
+    "correct": 2,
+    "explanation": "Hoàn thiện thể chế là tất yếu khách quan, gắn với hội nhập và phát triển bền vững."
   },
   {
-    id: 2,
-    question: "Giá trị thặng dư là gì?",
-    options: [
-      "A. Số tiền lãi từ đầu tư",
-      "B. Phần giá trị mới do lao động tạo ra bị tư bản chiếm đoạt",
-      "C. Sự chênh lệch giữa giá cả và chi phí sản xuất",
-      "D. Lợi nhuận từ kinh doanh"
+    "id": 2,
+    "question": "Một trong những nội dung hoàn thiện thể chế là gì?",
+    "options": [
+      "A. Hoàn thiện thể chế về sở hữu",
+      "B. Hoàn thiện thể chế về giáo dục",
+      "C. Hoàn thiện thể chế về quốc phòng",
+      "D. Hoàn thiện thể chế về văn hóa"
     ],
-    correct: 1,
-    explanation: "Giá trị thặng dư là phần giá trị mới do lao động tạo ra mà tư bản chiếm đoạt không trả công."
+    "correct": 0,
+    "explanation": "Trọng tâm là sở hữu và phát triển các thành phần kinh tế."
   },
   {
-    id: 3,
-    question: "Hai thuộc tính của hàng hóa theo lý thuyết Mác - Lênin là gì?",
-    options: [
-      "A. Giá trị sử dụng và giá trị",
-      "B. Giá trị sử dụng và giá trị trao đổi",
-      "C. Giá trị và giá trị thị trường",
-      "D. Cung và cầu"
+    "id": 3,
+    "question": "Thể chế về sở hữu ở Việt Nam hiện nay có đặc điểm gì?",
+    "options": [
+      "A. Chỉ có sở hữu nhà nước",
+      "B. Chỉ có sở hữu tư nhân",
+      "C. Có nhiều hình thức sở hữu đa dạng",
+      "D. Không có sở hữu tập thể"
     ],
-    correct: 1,
-    explanation: "Hàng hóa có hai thuộc tính: giá trị sử dụng (khả năng thỏa mãn nhu cầu) và giá trị (lao động xã hội kết tinh trong hàng hóa)."
+    "correct": 2,
+    "explanation": "Bao gồm nhà nước, tập thể, tư nhân."
   },
   {
-    id: 4,
-    question: "Quy luật cơ bản của kinh tế chính trị Mác - Lênin là gì?",
-    options: [
-      "A. Quy luật cung - cầu",
-      "B. Quy luật giá trị",
-      "C. Quy luật tích lũy tư bản",
-      "D. Quy luật giá trị thặng dư"
+    "id": 4,
+    "question": "Hoàn thiện thể chế phát triển đồng bộ các yếu tố thị trường nhằm mục tiêu gì?",
+    "options": [
+      "A. Tăng trưởng kinh tế nhanh",
+      "B. Phân bổ nguồn lực hiệu quả",
+      "C. Giảm vai trò nhà nước",
+      "D. Tăng thuế"
     ],
-    correct: 3,
-    explanation: "Quy luật giá trị thặng dư là quy luật cơ bản của chủ nghĩa tư bản, chi phối toàn bộ quá trình sản xuất tư bản chủ nghĩa."
+    "correct": 1,
+    "explanation": "Đồng bộ các yếu tố thị trường giúp phân bổ nguồn lực hiệu quả."
   },
   {
-    id: 5,
-    question: "Cấu trúc của tư bản gồm những phần nào?",
-    options: [
-      "A. Tư bản cố định và tư bản lưu động",
-      "B. Tư bản bất biến và tư bản khả biến",
-      "C. Tư bản tài chính và tư bản công nghiệp",
-      "D. Tư bản trong nước và tư bản nước ngoài"
+    "id": 5,
+    "question": "Một yếu tố thị trường cần hoàn thiện là gì?",
+    "options": [
+      "A. Thị trường lao động",
+      "B. Thị trường bất động sản",
+      "C. Thị trường vốn",
+      "D. Thị trường khoa học công nghệ"
     ],
-    correct: 1,
-    explanation: "Tư bản được chia thành tư bản bất biến (c) - giá trị phương tiện sản xuất, và tư bản khả biến (v) - giá trị sức lao động."
+    "correct": 0,
+    "explanation": "Thị trường lao động là yếu tố quan trọng cần hoàn thiện."
   },
   {
-    id: 6,
-    question: "Tỷ suất giá trị thặng dư được tính như thế nào?",
-    options: [
-      "A. m' = m / (c + v)",
-      "B. m' = m / v",
-      "C. m' = (c + v) / m",
-      "D. m' = m / c"
+    "id": 6,
+    "question": "Hoàn thiện thể chế để gắn tăng trưởng với công bằng xã hội nhằm mục tiêu nào?",
+    "options": [
+      "A. Giảm bất bình đẳng",
+      "B. Bảo đảm tiến bộ xã hội",
+      "C. Thúc đẩy hội nhập quốc tế",
+      "D. Nâng cao năng lực cạnh tranh quốc gia"
     ],
-    correct: 1,
-    explanation: "Tỷ suất giá trị thặng dư (m') = giá trị thặng dư (m) / tư bản khả biến (v), phản ánh mức độ bóc lột lao động."
+    "correct": 0,
+    "explanation": "Giảm bất bình đẳng là mục tiêu trọng yếu."
   },
   {
-    id: 7,
-    question: "Chu kỳ tư bản gồm mấy giai đoạn?",
-    options: [
-      "A. 2 giai đoạn",
-      "B. 3 giai đoạn",
-      "C. 4 giai đoạn",
-      "D. 5 giai đoạn"
+    "id": 7,
+    "question": "Vai trò của Nhà nước trong kinh tế thị trường định hướng XHCN là gì?",
+    "options": [
+      "A. Buông lỏng quản lý",
+      "B. Điều tiết và định hướng phát triển",
+      "C. Chỉ làm trọng tài",
+      "D. Không tham gia"
     ],
-    correct: 1,
-    explanation: "Chu kỳ tư bản gồm 3 giai đoạn: mua (H - T), sản xuất (T - P...), và bán (P' - H')."
+    "correct": 1,
+    "explanation": "Nhà nước giữ vai trò điều tiết và định hướng."
   },
   {
-    id: 8,
-    question: "Tư bản cố định là gì?",
-    options: [
-      "A. Tư bản dùng để mua nguyên vật liệu",
-      "B. Tư bản giá trị không thay đổi trong quá trình sản xuất",
-      "C. Tư bản lưu động nhanh",
-      "D. Tư bản đầu tư dài hạn"
+    "id": 8,
+    "question": "Một nội dung quan trọng của hoàn thiện thể chế là nâng cao năng lực hệ thống chính trị. Điều này nhằm:",
+    "options": [
+      "A. Tăng cường quản lý xã hội",
+      "B. Đảm bảo ổn định chính trị",
+      "C. Tạo môi trường cho phát triển kinh tế",
+      "D. Nâng cao năng lực cạnh tranh quốc tế"
     ],
-    correct: 1,
-    explanation: "Tư bản cố định là tư bản có giá trị chuyển dần vào sản phẩm theo mức hao mòn (máy móc, nhà xưởng)."
+    "correct": 1,
+    "explanation": "Đảm bảo ổn định chính trị là mục tiêu then chốt."
   },
   {
-    id: 9,
-    question: "Tư bản lưu động là gì?",
-    options: [
-      "A. Tư bản dùng để xây dựng nhà xưởng",
-      "B. Tư bản có giá trị chuyển toàn bộ vào sản phẩm trong một chu kỳ sản xuất",
-      "C. Tư bản đầu tư vào cổ phiếu",
-      "D. Tư bản cho vay ngắn hạn"
+    "id": 9,
+    "question": "Hội nhập quốc tế trong hoàn thiện thể chế kinh tế thị trường định hướng XHCN có ý nghĩa gì?",
+    "options": [
+      "A. Mở rộng thị trường",
+      "B. Thu hút đầu tư nước ngoài",
+      "C. Nâng cao năng lực cạnh tranh",
+      "D. Tăng cường hợp tác khu vực"
     ],
-    correct: 1,
-    explanation: "Tư bản lưu động là tư bản thay đổi hình thái liên tục, giá trị chuyển toàn bộ vào sản phẩm trong một chu kỳ (nguyên vật liệu, lương)."
+    "correct": 0,
+    "explanation": "Mở rộng thị trường là ý nghĩa nổi bật."
   },
   {
-    id: 10,
-    question: "Tái sản xuất là gì?",
-    options: [
-      "A. Quá trình sản xuất một lần",
-      "B. Quá trình sản xuất được lặp đi lặp lại, liên tục",
-      "C. Quá trình đầu tư tư bản",
-      "D. Quá trình tích lũy tư bản"
+    "id": 10,
+    "question": "Một thách thức khi hoàn thiện thể chế kinh tế thị trường định hướng XHCN là gì?",
+    "options": [
+      "A. Cạnh tranh gay gắt",
+      "B. Chênh lệch phát triển vùng miền",
+      "C. Vấn đề môi trường",
+      "D. Thiếu nguồn nhân lực chất lượng cao"
     ],
-    correct: 1,
-    explanation: "Tái sản xuất là quá trình sản xuất được lặp đi lặp lại, liên tục, bao gồm tái sản xuất giản đơn và mở rộng."
+    "correct": 0,
+    "explanation": "Cạnh tranh gay gắt là thách thức lớn."
+  },
+  {
+    "id": 11,
+    "question": "Lợi ích kinh tế là gì?",
+    "options": [
+      "A. Nhu cầu vật chất của con người",
+      "B. Mối quan hệ giữa người lao động và tư bản",
+      "C. Những lợi ích gắn với việc thỏa mãn nhu cầu kinh tế",
+      "D. Lợi nhuận doanh nghiệp"
+    ],
+    "correct": 2,
+    "explanation": "Lợi ích kinh tế phản ánh nhu cầu và động lực kinh tế."
+  },
+  {
+    "id": 12,
+    "question": "Quan hệ lợi ích kinh tế là gì?",
+    "options": [
+      "A. Quan hệ giữa các chủ thể về lợi ích kinh tế",
+      "B. Quan hệ chính trị",
+      "C. Quan hệ văn hóa",
+      "D. Quan hệ xã hội nói chung"
+    ],
+    "correct": 0,
+    "explanation": "Đây là quan hệ giữa các chủ thể trong nền kinh tế."
+  },
+  {
+    "id": 13,
+    "question": "Quan hệ lợi ích kinh tế có đặc điểm gì?",
+    "options": [
+      "A. Luôn thống nhất",
+      "B. Luôn mâu thuẫn",
+      "C. Vừa thống nhất vừa mâu thuẫn",
+      "D. Không liên quan"
+    ],
+    "correct": 2,
+    "explanation": "Có sự thống nhất và mâu thuẫn."
+  },
+  {
+    "id": 14,
+    "question": "Một nhân tố ảnh hưởng đến quan hệ lợi ích kinh tế là gì?",
+    "options": [
+      "A. Trình độ phát triển lực lượng sản xuất",
+      "B. Chính sách của Nhà nước",
+      "C. Cơ cấu sở hữu",
+      "D. Trình độ dân trí"
+    ],
+    "correct": 0,
+    "explanation": "Trình độ phát triển lực lượng sản xuất là nhân tố quan trọng."
+  },
+  {
+    "id": 15,
+    "question": "Một số quan hệ lợi ích cơ bản trong nền kinh tế thị trường là gì?",
+    "options": [
+      "A. Quan hệ giữa người lao động và chủ sử dụng lao động",
+      "B. Quan hệ giữa nhà nước và doanh nghiệp",
+      "C. Quan hệ giữa doanh nghiệp với doanh nghiệp",
+      "D. Quan hệ giữa doanh nghiệp và ngân hàng"
+    ],
+    "correct": 0,
+    "explanation": "Quan hệ giữa người lao động và chủ sử dụng lao động là cơ bản."
   }
 ];
+
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -399,7 +459,7 @@ const Quiz = () => {
                 Bạn đã trả lời đúng <ScoreHighlight $score={score}>{score}/{questions.length}</ScoreHighlight> câu hỏi
               </ResultScore>
               <ResultScore>
-                {score >= 8 ? "Xuất sắc! Bạn đã nắm vững kiến thức Kinh tế chính trị Mác - Lênin!" :
+                {score >= 8 ? "Xuất sắc! Bạn đã nắm vững kiến thức  Chương 5: Kinh tế thị trường định hướng xã hội chủ nghĩa và các quan hệ lợi ích kinh tế ở Việt Nam" :
                  score >= 6 ? "Tốt lắm! Kiến thức của bạn khá vững chắc." :
                  score >= 4 ? "Không tồi! Hãy tiếp tục học tập để củng cố kiến thức." :
                  "Hãy chú ý học kỹ hơn về Kinh tế chính trị Mác - Lênin nhé!"}

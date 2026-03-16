@@ -36,7 +36,8 @@ const SectionNumber = styled.span`
 const SectionTitle = styled(motion.h2)`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: ${({ theme }) => theme.fontSizes['3xl']};
-  color: ${({ $dark, theme }) => 
+  color: ${({ $dark, $black, theme }) => 
+    $black ? '#000000' : 
     $dark ? theme.colors.textWhite : theme.colors.textPrimary};
   margin-bottom: ${({ theme }) => theme.spacing.md};
   
@@ -47,7 +48,8 @@ const SectionTitle = styled(motion.h2)`
 
 const SectionDescription = styled(motion.p)`
   font-size: ${({ theme }) => theme.fontSizes.lg};
-  color: ${({ $dark, theme }) => 
+  color: ${({ $dark, $black, theme }) => 
+    $black ? '#000000' : 
     $dark ? 'rgba(255,255,255,0.7)' : theme.colors.textSecondary};
   max-width: 700px;
   margin: 0 auto;
@@ -77,6 +79,7 @@ const Card = styled(motion.div)`
   }
 `;
 
+// eslint-disable-next-line no-unused-vars
 const CardIcon = styled.div`
   width: 60px;
   height: 60px;
@@ -151,9 +154,8 @@ const sectionsData = [
     number: '01',
     title: 'Đối tượng và Phương pháp Nghiên cứu',
     description: 'Tìm hiểu về đối tượng, nhiệm vụ và các phương pháp nghiên cứu của kinh tế chính trị Mác – Lênin.',
-    bg: 'secondary',
-    dark: false,
-    icon: '🎯',
+    
+    
     cards: [
       {
         title: 'Đối tượng nghiên cứu',
@@ -380,6 +382,7 @@ const sectionsData = [
     description: 'Đặc trưng, tính tất yếu và các chính sách kinh tế của Việt Nam.',
     bg: 'primary',
     dark: true,
+    black: true,
     icon: '🇻🇳',
     cards: [
       {
@@ -476,6 +479,7 @@ const ContentSections = () => {
               <SectionNumber>{section.number}</SectionNumber>
               <SectionTitle 
                 $dark={section.dark}
+                $black={section.black}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -485,6 +489,7 @@ const ContentSections = () => {
               </SectionTitle>
               <SectionDescription 
                 $dark={section.dark}
+                $black={section.black}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -505,7 +510,7 @@ const ContentSections = () => {
                   variants={cardVariants}
                   whileHover={{ scale: 1.03 }}
                 >
-                  <CardIcon>{section.icon}</CardIcon>
+                  {/* <CardIcon>{section.icon}</CardIcon> */}
                   <CardTitle>{card.title}</CardTitle>
                   <CardText>{card.text}</CardText>
                   {card.list && (
