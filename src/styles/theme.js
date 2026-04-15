@@ -1,29 +1,29 @@
 // Theme configuration for Triết 2 - Kinh tế chính trị Mác - Lênin website
 export const theme = {
   colors: {
-    primary: '#1a365d',
-    primaryLight: '#2c5282',
-    primaryDark: '#0d1b2a',
-    secondary: '#c53030',
-    secondaryLight: '#e53e3e',
-    accent: '#d69e2e',
-    accentLight: '#ecc94b',
-    success: '#38a169',
-    info: '#3182ce',
-    warning: '#dd6b20',
+    primary: '#9F1239', // Rose 800 - Deep Crimson
+    primaryLight: '#E11D48', // Rose 600
+    primaryDark: '#881337', // Rose 900
+    secondary: '#B45309', // Amber 700 - Deep Gold
+    secondaryLight: '#D97706', // Amber 600
+    accent: '#0F172A', // Slate 900
+    accentLight: '#FBBF24', // Amber 400
+    success: '#059669', // Emerald 600
+    info: '#2563EB', // Blue 600
+    warning: '#EA580C', // Orange 600
     
     // Background colors
-    bgPrimary: '#ffffff',
-    bgSecondary: '#f7fafc',
-    bgDark: '#1a202c',
-    bgGradientStart: '#1a365d',
-    bgGradientEnd: '#2c5282',
+    bgPrimary: '#FAFAF9', // Warm White
+    bgSecondary: '#F5F5F4', // Slightly darker warm white
+    bgDark: '#1C1917', // Stone 900
+    bgGradientStart: '#881337', // Deep Crimson
+    bgGradientEnd: '#9F1239',
     
     // Text colors
-    textPrimary: '#1a202c',
-    textSecondary: '#4a5568',
-    textLight: '#718096',
-    textWhite: '#ffffff',
+    textPrimary: '#1C1917',
+    textSecondary: '#57534E',
+    textLight: '#A8A29E',
+    textWhite: '#FFFFFF',
     
     // Card and border
     cardBg: '#ffffff',

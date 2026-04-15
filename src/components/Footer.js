@@ -225,7 +225,7 @@ const Footer = () => {
              
             </Logo>
             <BrandDescription>
-              Website trình bày nội dung môn MLN122 – Kinh tế chính trị Mác – Lênin.
+              Website trình bày nội dung môn HCM202 – Tư tưởng Hồ Chí Minh.
               
             </BrandDescription>
             
@@ -235,20 +235,16 @@ const Footer = () => {
           <FooterColumn>
             <ColumnTitle>Nội dung</ColumnTitle>
             <FooterLinks>
-              <FooterLink><a href="#objectives">Đối tượng & PP</a></FooterLink>
-              <FooterLink><a href="#production">Sản xuất HH</a></FooterLink>
-              <FooterLink><a href="#commodity">Hàng hóa & TT</a></FooterLink>
-              <FooterLink><a href="#law">Quy luật GL</a></FooterLink>
-              <FooterLink><a href="#capital">Tư bản</a></FooterLink>
+              <FooterLink><a href="#chapter1">Khái niệm & Đối tượng</a></FooterLink>
+              <FooterLink><a href="#chapter2">Quá trình hình thành</a></FooterLink>
+              <FooterLink><a href="#chapter3">Độc lập dân tộc & CNXH</a></FooterLink>
             </FooterLinks>
           </FooterColumn>
 
           <FooterColumn>
-            <ColumnTitle>Chuyên đề</ColumnTitle>
+            <ColumnTitle>Tính năng</ColumnTitle>
             <FooterLinks>
-              <FooterLink><a href="#competition">Cạnh tranh & Độc quyền</a></FooterLink>
-              <FooterLink><a href="#market">KT Thị trường</a></FooterLink>
-              <FooterLink><a href="#industrialization">CNH - HĐH</a></FooterLink>
+              <FooterLink><a href="#quiz">Bài tập trắc nghiệm</a></FooterLink>
             </FooterLinks>
           </FooterColumn>
 
@@ -269,7 +265,7 @@ const Footer = () => {
 
         <FooterBottom>
           <Copyright>
-            © {currentYear} MLN122 - Kinh tế chính trị Mác - Lênin. All rights reserved.
+            © {currentYear} HCM202 - Tư tưởng Hồ Chí Minh. All rights reserved.
           </Copyright>
           <FooterBottomLinks>
             <a href="/privacy">Privacy Policy</a>

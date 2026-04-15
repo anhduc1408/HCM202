@@ -246,7 +246,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Nội dung chinh
+          Nội dung chính
         </SubTitle>
 
         <MainTitle
@@ -255,7 +255,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
          
-          <span>Kinh tế chính trị Mác – Lênin</span>
+          <span>Tư tưởng Hồ Chí Minh</span>
         </MainTitle>
 
         <Description
@@ -263,8 +263,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Khám phá những quy luật kinh tế cơ bản, từ sản xuất hàng hóa đến 
-          kinh tế thị trường định hướng xã hội chủ nghĩa tại Việt Nam
+          Hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam.
         </Description>
 
         <ButtonGroup

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
+// --- STYLED COMPONENTS FOR CONTAINERS & HEADERS ---
 const SectionWrapper = styled.section`
-  padding: ${({ theme }) => theme.spacing['3xl']} 0;
+  padding: ${({ theme }) => theme.spacing['4xl']} 0;
   background: ${({ $bg, theme }) => 
-    $bg === 'dark' ? theme.colors.bgDark : 
+    $bg === 'dark' ? theme.colors.bgPrimary : 
     $bg === 'secondary' ? theme.colors.bgSecondary : 
     theme.colors.bgPrimary};
+  overflow-x: hidden;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 `;
 
 const Container = styled.div`
@@ -25,107 +28,284 @@ const SectionNumber = styled.span`
   display: inline-block;
   font-family: ${({ theme }) => theme.fonts.accent};
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.secondary};
-  background: ${({ theme }) => theme.colors.secondary}15;
-  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
+  color: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primaryLight}15;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   margin-bottom: ${({ theme }) => theme.spacing.md};
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 1px;
 `;
 
 const SectionTitle = styled(motion.h2)`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes['3xl']};
-  color: ${({ $dark, $black, theme }) => 
-    $black ? '#000000' : 
-    $dark ? theme.colors.textWhite : theme.colors.textPrimary};
+  font-size: ${({ theme }) => theme.fontSizes['4xl']};
+  color: ${({ theme }) => theme.colors.textPrimary};
   margin-bottom: ${({ theme }) => theme.spacing.md};
+  font-weight: 800;
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: ${({ theme }) => theme.fontSizes['2xl']};
+    font-size: ${({ theme }) => theme.fontSizes['3xl']};
   }
 `;
 
 const SectionDescription = styled(motion.p)`
   font-size: ${({ theme }) => theme.fontSizes.lg};
-  color: ${({ $dark, $black, theme }) => 
-    $black ? '#000000' : 
-    $dark ? 'rgba(255,255,255,0.7)' : theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textSecondary};
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.8;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(${({ $cols }) => $cols || 2}, 1fr);
-  gap: ${({ theme }) => theme.spacing.xl};
-  
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const Card = styled(motion.div)`
-  background: ${({ theme }) => theme.colors.cardBg};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  padding: ${({ theme }) => theme.spacing.xl};
-  box-shadow: ${({ theme }) => theme.shadows.md};
-  transition: all ${({ theme }) => theme.transitions.normal};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${({ theme }) => theme.shadows.xl};
-  }
-`;
-
-// eslint-disable-next-line no-unused-vars
-const CardIcon = styled.div`
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, 
-    ${({ theme }) => theme.colors.primary}, 
-    ${({ theme }) => theme.colors.primaryLight}
-  );
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
-`;
-
-const CardTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  color: ${({ theme }) => theme.colors.textPrimary};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
-`;
-
-const CardText = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.base};
-  color: ${({ theme }) => theme.colors.textSecondary};
-  line-height: 1.7;
-`;
-
+// --- SHARED TEXT/LIST STYLES ---
 const List = styled.ul`
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.spacing.lg};
 `;
 
 const ListItem = styled.li`
   position: relative;
-  padding-left: ${({ theme }) => theme.spacing.lg};
+  padding-left: ${({ theme }) => theme.spacing.xl};
   margin-bottom: ${({ theme }) => theme.spacing.sm};
   color: ${({ theme }) => theme.colors.textSecondary};
+  line-height: 1.7;
+  font-size: ${({ theme }) => theme.fontSizes.base};
   
   &::before {
-    content: '✓';
+    content: '';
     position: absolute;
-    left: 0;
-    color: ${({ theme }) => theme.colors.success};
-    font-weight: bold;
+    left: 4px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary};
   }
 `;
 
+// --- TABS LAYOUT (INTERACTIVE SPLIT) ---
+const TabsContainer = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing['2xl']};
+  min-height: 500px;
+  background: #ffffff;
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.04);
+  overflow: hidden;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    flex-direction: column;
+    min-height: auto;
+  }
+`;
+
+const TabsSidebar = styled.div`
+  flex: 0 0 320px;
+  background: ${({ theme }) => theme.colors.bgSecondary};
+  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.md};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.sm};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    flex: none;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: ${({ theme }) => theme.spacing.md};
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+`;
+
+const TabButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.md};
+  width: 100%;
+  text-align: left;
+  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  background: ${({ $active }) => ($active ? '#ffffff' : 'transparent')};
+  box-shadow: ${({ $active }) => ($active ? '0 4px 12px rgba(0,0,0,0.05)' : 'none')};
+  border: 1px solid ${({ $active }) => ($active ? 'rgba(0,0,0,0.05)' : 'transparent')};
+  color: ${({ $active, theme }) => ($active ? theme.colors.primary : theme.colors.textSecondary)};
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ $active, theme }) => ($active ? '#ffffff' : 'rgba(255,255,255,0.5)')};
+  }
+
+  .number {
+    font-family: ${({ theme }) => theme.fonts.accent};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    font-weight: 700;
+    color: ${({ $active, theme }) => ($active ? theme.colors.secondary : theme.colors.textLight)};
+    min-width: 24px;
+  }
+  .title {
+    font-weight: ${({ $active }) => ($active ? 600 : 500)};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    white-space: normal;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+`;
+
+const TabsContent = styled.div`
+  flex: 1;
+  padding: ${({ theme }) => theme.spacing['2xl']};
+  position: relative;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.spacing.xl};
+  }
+`;
+
+const TabContentPane = styled(motion.div)`
+  width: 100%;
+`;
+
+const ContentHeader = styled.div`
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  
+  h3 {
+    font-size: ${({ theme }) => theme.fontSizes['3xl']};
+    font-family: ${({ theme }) => theme.fonts.heading};
+    color: ${({ theme }) => theme.colors.primaryDark};
+    line-height: 1.3;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    h3 { font-size: ${({ theme }) => theme.fontSizes['2xl']}; }
+  }
+`;
+
+const ContentBody = styled.div`
+  p {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    line-height: 1.8;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    margin-bottom: ${({ theme }) => theme.spacing.lg};
+  }
+`;
+
+// --- MODERN LEFT-ALIGNED TIMELINE ---
+const LeftTimelineContainer = styled.div`
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: ${({ theme }) => theme.spacing.xl} 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: ${({ theme }) => theme.colors.border};
+    top: 20px;
+    bottom: 20px;
+    left: 170px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    &::before {
+      left: 20px;
+    }
+  }
+`;
+
+const TimelineRow = styled(motion.div)`
+  display: flex;
+  margin-bottom: ${({ theme }) => theme.spacing['3xl']};
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+    padding-left: 50px;
+  }
+`;
+
+const TimelineDate = styled.div`
+  flex: 0 0 140px;
+  text-align: right;
+  padding-right: 40px;
+  padding-top: 5px;
+  
+  h4 {
+    color: ${({ theme }) => theme.colors.primary};
+    font-family: ${({ theme }) => theme.fonts.accent};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-weight: 700;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: ${({ theme }) => theme.spacing.xs};
+    flex: none;
+    
+    h4 {
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      color: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+`;
+
+const TimelineDotIndicator = styled.div`
+  position: absolute;
+  left: 164px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid ${({ theme }) => theme.colors.primary};
+  box-shadow: 0 0 0 4px rgba(255,255,255,1), 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    left: 14px;
+    top: 4px;
+  }
+`;
+
+const TimelineContentCard = styled.div`
+  flex: 1;
+  background: #ffffff;
+  padding: ${({ theme }) => theme.spacing.xl};
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.04);
+  margin-left: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-left: 0;
+  }
+`;
+
+const TimelineCardText = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  line-height: 1.8;
+  font-weight: 500;
+`;
+
+
+// --- ANIMATION VARIANTS ---
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
@@ -135,335 +315,259 @@ const sectionVariants = {
   }
 };
 
-const cardVariants = {
+const rowVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
+  visible: { 
     opacity: 1,
     y: 0,
-    transition: { 
-      delay: i * 0.1,
-      duration: 0.5 
-    }
-  })
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
 };
 
-// Content data
+
+// --- DATA ---
 const sectionsData = [
   {
-    id: 'objectives',
-    number: '01',
-    title: 'Đối tượng và Phương pháp Nghiên cứu',
-    description: 'Tìm hiểu về đối tượng, nhiệm vụ và các phương pháp nghiên cứu của kinh tế chính trị Mác – Lênin.',
-    
-    
+    id: 'chapter1',
+    number: 'CHƯƠNG I',
+    layout: 'tabs',
+    title: 'Khái niệm, Đối tượng & Phương pháp học tập',
+    description: 'Chương mở đầu định hình nền tảng tư duy lý luận về môn Tư tưởng Hồ Chí Minh.',
+    bg: 'primary',
     cards: [
+      {
+        title: 'Khái niệm Tư tưởng Hồ Chí Minh',
+        text: 'Theo Văn kiện Đại hội XI của Đảng (2011), Tư tưởng Hồ Chí Minh là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam.',
+        list: [
+          'Kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác – Lênin vào điều kiện cụ thể của Việt Nam.',
+          'Sự kế thừa và phát triển các giá trị truyền thống dân tộc, vươn tầm tiếp thu tinh hoa văn hóa nhân loại.',
+          'Mục tiêu cốt lõi: giải phóng dân tộc, giai cấp, con người.'
+        ]
+      },
       {
         title: 'Đối tượng nghiên cứu',
-        text: 'Kinh tế chính trị Mác – Lênin nghiên cứu các quy luật kinh tế khách quan chi phối sản xuất, trao đổi, phân phối và tiêu dùng trong các hình thái kinh tế - xã hội khác nhau.',
+        text: 'Nghiên cứu toàn bộ hệ thống quan điểm của Chủ Tịch Hồ Chí Minh và quá trình thực tiễn cách mạng vươn lên giành độc lập của dân tộc Việt Nam.',
         list: [
-          'Quy luật chung của sản xuất và tái sản xuất',
-          'Quan hệ giữa lực lượng sản xuất và quan hệ sản xuất',
-          'Cơ chế vận hành của các phương thức sản xuất',
+          'Hệ thống quan điểm thông qua các tác phẩm, bài nói, bài viết, hoạt động thực tiễn của Người.',
+          'Quá trình hình thành, phát triển và vận dụng tư tưởng trong thực tiễn CMVN.',
+          'Làm rõ giá trị lý luận và thực tiễn, cũng như các quy luật được đúc kết.'
         ]
       },
       {
-        title: 'Phương pháp nghiên cứu',
-        text: 'Sử dụng phương pháp duy vật biện chứng và duy vật lịch sử để phân tích các hiện tượng kinh tế.',
+        title: 'Phương pháp luận cốt lõi',
+        text: 'Hệ thống đánh giá dựa trên nền tảng triết học khách quan, toàn diện và sự thống nhất giữa tính Đảng và tính khoa học.',
         list: [
-          'Phương pháp logic và lịch sử',
-          'Phương pháp trừu tượng hóa',
-          'Phương pháp phân tích và tổng hợp',
-          'Phương pháp thống kê và so sánh',
+          'Lấy thực tiễn làm tiêu chuẩn kiểm nghiệm chân lý.',
+          'Phân tích theo hệ quy chiếu lịch sử – cụ thể, nhìn nhận mọi sự vật toàn diện.',
+          'Luôn kế thừa và phát triển sáng tạo so với góc nhìn cũ.'
+        ]
+      },
+      {
+        title: 'Kỹ thuật Phương pháp cụ thể',
+        text: 'Sử dụng các phương pháp đặc thù và liên ngành trong việc xác định các bài học lý luận vô giá.',
+        list: [
+          'Kết hợp chặt chẽ cấu trúc mô hình dòng chảy logic và quy luật lịch sử.',
+          'Phân tích văn bản gắn với hoạt động thực tiễn nổi bật tương ứng.',
+          'Ứng dụng sâu sắc khối kiến thức: Triết học, khoa học chính trị và nhân chủng học.'
+        ]
+      },
+      {
+        title: 'Ý nghĩa của việc học tập',
+        text: 'Giáo dục tư tưởng, chính trị, đạo đức và phong cách chuẩn mực cho thế hệ trí thức tương lai.',
+        list: [
+          'Nâng tầm tư duy biện chứng và rèn giũa bản lĩnh kiên gan.',
+          'Củng cố niềm tin bất diệt vào độc lập dân tộc tiến cùng tiến trình CNXH.',
+          'Sống và làm việc theo tấm gương đạo đức sáng rọi của Hồ Chủ Tịch.'
         ]
       }
     ]
   },
   {
-    id: 'production',
-    number: '02',
-    title: 'Sản xuất Hàng hóa',
-    description: 'Điều kiện ra đời, đặc trưng và ưu thế của sản xuất hàng hóa trong nền kinh tế.',
-    bg: 'primary',
-    dark: false,
-    icon: '📦',
-    cards: [
-      {
-        title: 'Điều kiện ra đời',
-        text: 'Sản xuất hàng hóa ra đời khi có sự phân công lao động xã hội và sự tách biệt giữa các bộ phận sản xuất độc lập với nhau.',
-        list: [
-          'Phân công lao động xã hội',
-          'Sự tách biệt về kinh tế giữa các đơn vị sản xuất',
-          'Quyền sở hữu tư nhân về tư liệu sản xuất',
-        ]
-      },
-      {
-        title: 'Đặc trưng của sản xuất hàng hóa',
-        text: 'Sản xuất hàng hóa có những đặc điểm riêng biệt phân biệt với tự cung tự cấp.',
-        list: [
-          'Sản xuất vì mục đích trao đổi',
-          'Hoạt động sản xuất mang tính xã hội hóa cao',
-          'Có sự cạnh tranh giữa các nhà sản xuất',
-        ]
-      },
-      {
-        title: 'Ưu thế của sản xuất hàng hóa',
-        text: 'So với sản xuất tự cung tự cấp, sản xuất hàng hóa có nhiều ưu thế vượt trội.',
-        list: [
-          'Kích thích phát triển lực lượng sản xuất',
-          'Khuyến khích cải tiến kỹ thuật',
-          'Tăng năng suất lao động',
-          'Mở rộng thị trường và hợp tác quốc tế',
-        ]
-      }
-    ]
-  },
-  {
-    id: 'commodity',
-    number: '03',
-    title: 'Hàng hóa và Tiền tệ',
-    description: 'Thuộc tính của hàng hóa, nguồn gốc, bản chất và các chức năng của tiền tệ.',
-    bg: 'primary',
-    dark: false,
-    icon: '💰',
-    cards: [
-      {
-        title: 'Thuộc tính của hàng hóa',
-        text: 'Hàng hóa có hai thuộc tính cơ bản: giá trị sử dụng và giá trị.',
-        list: [
-          'Giá trị sử dụng: khả năng thỏa mãn nhu cầu nào đó của con người',
-          'Giá trị: hao phí lao động xã hội cần thiết để sản xuất ra hàng hóa',
-          'Hai thuộc tính của hàng hóa thống nhất trong thực tế',
-        ]
-      },
-      {
-        title: 'Nguồn gốc và bản chất của tiền',
-        text: 'Tiền tệ ra đời từ quá trình phát triển của sản xuất và trao đổi hàng hóa.',
-        list: [
-          'Quá trình phát triển: hàng đổi hàng → vật ngang giá chung → tiền tệ',
-          'Tiền là vật ngang giá chung được xã hội thừa nhận',
-          'Tiền là loại hàng hóa đặc biệt đóng vai trò vật ngang giá chung',
-        ]
-      },
-      {
-        title: 'Chức năng của tiền tệ',
-        text: 'Tiền tệ thực hiện năm chức năng cơ bản trong nền kinh tế.',
-        list: [
-          'Thước đo giá trị',
-          'Phương tiết lưu thông',
-          'Phương tiện cất trữ',
-          'Phương tiện thanh toán',
-          'Tiền tệ thế giới',
-        ]
-      }
-    ]
-  },
-  {
-    id: 'law',
-    number: '04',
-    title: 'Quy luật Giá trị',
-    description: 'Nội dung, tác động và vai trò của quy luật giá trị trong sản xuất và phân phối.',
+    id: 'chapter2',
+    number: 'CHƯƠNG II',
+    layout: 'timeline',
+    title: 'Cơ sở & Tiến trình Dấu ấn Lịch sử',
+    description: 'Chương II theo dõi sự biến đổi thực tiễn và nhận thức vĩ đại qua các mốc thời gian chói lọi.',
     bg: 'secondary',
-    dark: false,
-    icon: '⚖️',
     cards: [
       {
-        title: 'Nội dung quy luật giá trị',
-        text: 'Quy luật giá trị yêu cầu việc sản xuất và trao đổi hàng hóa phải dựa trên hao phí lao động xã hội cần thiết.',
+        title: 'Thực tiễn',
+        text: 'Bối cảnh lịch sử trong nước và quốc tế định hình tư duy tìm đường cứu nước.',
         list: [
-          'Hao phí lao động cá nhân phải phù hợp với hao phí lao động xã hội',
-          'Giá cả hàng hóa dao động xung quanh giá trị',
-          'Thời gian lao động xã hội cần thiết là thước đo hao phí lao động',
+          'Giai đoạn u ám: Các phong trào yêu nước liên tiếp chìm trong bể máu và thất bại.',
+          'Mệnh lệnh lịch sử: Phải tìm ra lối thoát độc lập triệt để cho dân tộc.'
         ]
       },
       {
-        title: 'Tác động của quy luật giá trị',
-        text: 'Quy luật giá trị có những tác động mạnh mẽ đến sản xuất và lưu thông.',
+        title: 'Cơ sở Lý luận',
+        text: 'Sự kết hợp hoàn hảo giữa chất liệu Á - Âu và tư tưởng Marxist.',
         list: [
-          'Kích thích cải tiến kỹ thuật, nâng cao năng suất lao động',
-          'Phân hóa giữa các nhà sản xuất',
-          'Điều tiết sản xuất và lưu thông',
-          'Thúc đẩy cạnh tranh lành mạnh',
+          'Hồn cốt Á châu: Nhân nghĩa, đoàn kết cộng đồng, triết lý Lão, Phật.',
+          'Tầm nhìn Âu - Mỹ: Tinh hoa dân chủ, khát vọng nhân quyền.',
+          'Đỉnh cao nhận thức: Ánh sáng của luận cương Lênin chiếu rọi con đường vô sản.'
         ]
       },
       {
-        title: 'Vai trò trong kinh tế thị trường',
-        text: 'Quy luật giá trị đóng vai trò quan trọng trong việc vận hành kinh tế thị trường.',
+        title: 'Nhân tố vị nhân',
+        text: 'Thiên tài Nguyễn Ái Quốc - Hội tụ yếu tố khách quan và nỗ lực phi thường.',
         list: [
-          'Cơ sở cho việc định giá hàng hóa và dịch vụ',
-          'Công cụ phân bổ nguồn lực',
-          'Động lực thúc đẩy phát triển kinh tế',
-          'Cơ chế tự điều chỉnh của thị trường',
+          'Tầm nhìn sắc bén vượt thời đại, thoát ly các giới hạn sĩ phu cũ.',
+          'Ý chí rèn luyện bền bỉ trải qua hàng chục năm bôn ba lao động.'
+        ]
+      },
+      {
+        title: 'Trước 1911 - 1930',
+        text: 'Chông gai tìm đường và tạo lập hạt giống cách mạng vĩ đại.',
+        list: [
+          '1911-1920: Chia tay bến Nhà Rồng, hoà mình vào dòng chảy lao khổ thế giới, bắt gặp chân lý Mác-Lênin.',
+          '1920-1930: Xây dựng nền tảng tư tưởng, truyền bá ánh sáng về nước, sáng lập ĐCS Việt Nam lịch sử.'
+        ]
+      },
+      {
+        title: '1930 - 1969',
+        text: 'Ánh trăng chiếu sáng muôn dân, chèo lái con thuyền dân tộc.',
+        list: [
+          '1930-1945: Tổng khởi nghĩa Tháng Tám thần thánh.',
+          '1945-1969: Lãnh đạo cuộc chiến vệ quốc 9 năm, đặt móng nhà nước Dân chủ tiến lên CNXH.'
         ]
       }
     ]
   },
   {
-    id: 'capital',
-    number: '05',
-    title: 'Tư bản và Giá trị Thặng dư',
-    description: 'Bản chất của tư bản, cơ chế tạo ra giá trị thặng dư và ý nghĩa lý luận.',
+    id: 'chapter3',
+    number: 'CHƯƠNG III',
+    layout: 'tabs',
+    title: 'Độc lập Dân tộc gắn với Chủ nghĩa Xã hội',
+    description: 'Bản lề khát vọng thiêng liêng nhất xuyên suốt toàn bộ sự nghiệp chính trị Hồ Chí Minh.',
     bg: 'primary',
-    dark: false,
-    icon: '🏦',
     cards: [
       {
-        title: 'Bản chất của tư bản',
-        text: 'Tư bản là giá trị mang lại giá trị thặng dư thông qua bóc lột lao động.',
+        title: 'Độc lập dân tộc',
+        text: '"Không có gì quý hơn độc lập tự do". Đặc trưng độc lập dân tộc mang chiều kích đầy đủ nhất.',
         list: [
-          'Tư bản không phải là vật chất mà là quan hệ xã hội',
-          'Tư bản được biểu hiện qua tiền, tư liệu sản xuất',
-          'Điều kiện để tiền trở thành tư bản: có hàng hóa sức lao động',
+          'Độc lập phải là món quà thực tiễn: Cơm no, áo ấm, mọi người đều được học hành.',
+          'Độc lập toàn vẹn tuyệt đối về mặt chủ quyền địa lý và tự định đoạt số phận chính trị.'
         ]
       },
       {
-        title: 'Giá trị thặng dư',
-        text: 'Giá trị thặng dư là giá trị mới dôi ra ngoài giá trị sức lao động do lao động tạo ra.',
+        title: 'Khoa học Giải phóng dân tộc',
+        text: 'Chiến lược đánh bại ách đô hộ một cách hệ thống dựa vào quần chúng.',
         list: [
-          'Giá trị sức lao động < Giá trị mới do lao động tạo ra',
-          'Hai phương pháp sản xuất giá trị thặng dư: tuyệt đối và tương đối',
-          'Tỷ suất giá trị thặng dư: m\'/v',
+          'Cốt lõi tiên quyết: Dưới ngọn cờ của Đảng Cộng sản kiên định.',
+          'Đoàn kết rộng rãi toàn diện trên nền tảng liên minh Công - Nông - Trí.',
+          'Nghệ thuật làm chủ nhịp độ: Kết hợp linh hoạt đấu tranh chính trị, ngoại giao với vũ trang.'
         ]
       },
       {
-        title: 'Ý nghĩa lý luận và thực tiễn',
-        text: 'Lý thuyết giá trị thặng dư có ý nghĩa quan trọng trong việc phân tích chủ nghĩa tư bản.',
+        title: 'Lý tưởng Chủ nghĩa Xã hội',
+        text: 'Hình thái xã hội nhân văn nhất với cấu trúc tiến bộ vì ấm no con người.',
         list: [
-          'Giải thích bản chất bóc lột trong chủ nghĩa tư bản',
-          'Cơ sở phân tích các vấn đề kinh tế hiện đại',
-          'Nền tảng cho việc nghiên cứu chính sách phân phối',
-        ]
-      }
-    ]
-  },
-  {
-    id: 'competition',
-    number: '06',
-    title: 'Cạnh tranh và Độc quyền',
-    description: 'Cạnh tranh trong kinh tế thị trường và các hình thức độc quyền.',
-    bg: 'secondary',
-    dark: false,
-    icon: '🏆',
-    cards: [
-      {
-        title: 'Cạnh tranh trong kinh tế thị trường',
-        text: 'Cạnh tranh là hiện tượng tất yếu trong kinh tế thị trường khi các chủ thể đua nhau giành lợi ích.',
-        list: [
-          'Cạnh tranh giữa các nhà sản xuất',
-          'Cạnh tranh giữa các nhà bán lẻ',
-          'Cạnh tranh giữa người mua và người bán',
-          'Cạnh tranh với hàng nhập khẩu',
+          'Quyền lực không thuộc thiều số, mà thuôc vào nhân dân lao động làm chủ.',
+          'Kinh tế vươn tầm, thịnh vượng, công bằng minh bạch là bệ phóng vút cao văn hoá.'
         ]
       },
       {
-        title: 'Độc quyền và các hình thức',
-        text: 'Độc quyền xuất hiện khi một hoặc một số ít doanh nghiệp kiểm soát thị trường.',
+        title: 'Động lực cất cánh CNXH',
+        text: 'Huy động nội - ngoại lực tạo đòn bẩy thép.',
         list: [
-          'Độc quyền nhà nước',
-          'Độc quyền tư nhân',
-          'Độc quyền tập đoàn',
-          'Các hình thức liên kết: cartel, trust, conglomerate',
+          'Tài sản quý nhất để xây dựng kiến thiết chính là con người.',
+          'Tinh thần đại đoàn kết, đồng tâm hiệp lực chia sẻ lợi ích cá nhân, tập thể, quốc gia.'
         ]
       },
       {
-        title: 'Tác động của cạnh tranh và độc quyền',
-        text: 'Cạnh tranh và độc quyền có những tác động khác nhau đến nền kinh tế.',
+        title: 'Sự gắn kết máu thịt',
+        text: 'Không có độc lập sẽ không có cơ sở tiến đến CNXH, mà CNXH là pháo đài thép giữ vững Độc Lập.',
         list: [
-          'Cạnh tranh: kích thích đổi mới, nâng cao chất lượng',
-          'Độc quyền: có thể dẫn đến định giá cao, giảm đổi mới',
-          'Vai trò của nhà nước trong điều tiết cạnh tranh',
-        ]
-      }
-    ]
-  },
-  {
-    id: 'market',
-    number: '07',
-    title: 'Kinh tế Thị trường định hướng XHCN ở Việt Nam',
-    description: 'Đặc trưng, tính tất yếu và các chính sách kinh tế của Việt Nam.',
-    bg: 'primary',
-    dark: true,
-    black: true,
-    icon: '🇻🇳',
-    cards: [
-      {
-        title: 'Đặc trưng của kinh tế thị trường định hướng XHCN',
-        text: 'Kinh tế thị trường định hướng XHCN ở Việt Nam có những đặc điểm riêng biệt.',
-        list: [
-          'Nhiều hình thức sở hữu đa dạng: nhà nước, tập thể, tư nhân',
-          'Nhiều thành phần kinh tế cùng phát triển',
-          'Vai trò điều tiết của nhà nước',
-          'Thị trường làm cơ sở phân bổ nguồn lực chính',
-        ]
-      },
-      {
-        title: 'Tính tất yếu của kinh tế thị trường',
-        text: 'Việc chuyển đổi sang kinh tế thị trường là tất yếu khách quan.',
-        list: [
-          'Phù hợp với quy luật kinh tế khách quan',
-          'Khai thác hiệu quả nguồn lực',
-          'Hội nhập kinh tế quốc tế',
-          'Giải phóng sức sản xuất',
-        ]
-      },
-      {
-        title: 'Các chính sách kinh tế chủ yếu',
-        text: 'Nhà nước Việt Nam thực hiện các chính sách kinh tế để định hướng phát triển.',
-        list: [
-          'Chính sách tài khóa và tiền tệ',
-          'Chính sách đầu tư và thương mại',
-          'Chính sách phân phối và an sinh xã hội',
-          'Chính sách bảo vệ môi trường',
-        ]
-      }
-    ]
-  },
-  {
-    id: 'industrialization',
-    number: '08',
-    title: 'Công nghiệp hóa, Hiện đại hóa, Hội nhập quốc tế',
-    description: 'Chiến lược phát triển kinh tế và hội nhập kinh tế quốc tế của Việt Nam.',
-    bg: 'secondary',
-    dark: false,
-    icon: '🌐',
-    cards: [
-      {
-        title: 'Công nghiệp hóa, hiện đại hóa',
-        text: 'CNH, HĐH là con đường phát triển kinh tế của Việt Nam trong giai đoạn mới.',
-        list: [
-          'Chuyển đổi cơ cấu kinh tế từ nông nghiệp sang công nghiệp',
-          'Ứng dụng khoa học công nghệ hiện đại',
-          'Phát triển nguồn nhân lực chất lượng cao',
-          'Xây dựng cơ sở hạ tầng đồng bộ',
-        ]
-      },
-      {
-        title: 'Hội nhập kinh tế quốc tế',
-        text: 'Việt Nam tích cực hội nhập vào nền kinh tế thế giới.',
-        list: [
-          'Tham gia các hiệp định thương mại tự do (FTA, EVFTA, CPTPP)',
-          'Thu hút đầu tư nước ngoài (FDI)',
-          'Xuất khẩu các sản phẩm có lợi thế so sánh',
-          'Nâng cao năng lực cạnh tranh quốc gia',
-        ]
-      },
-      {
-        title: 'Thách thức và giải pháp',
-        text: 'CNH, HĐH và hội nhập quốc tế đặt ra nhiều thách thức cần vượt qua.',
-        list: [
-          'Thách thức: cạnh tranh, chênh lệch phát triển, môi trường',
-          'Giải pháp: đổi mới sáng tạo, phát triển bền vững',
-          'Xây dựng nền kinh tế độc lập, tự chủ',
-          'Kết hợp sức mạnh dân tộc với sức mạnh thời đại',
+          'Độc lập là ngọn lửa tiên quyết mở đường.',
+          'CNXH là xi măng cốt thép bảo vệ vĩnh viễn quyền dân tộc tự quyết.'
         ]
       }
     ]
   }
 ];
 
+
+// --- RENDER COMPONENTS ---
+const RenderTabsLayout = ({ section }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  return (
+    <TabsContainer>
+      <TabsSidebar>
+        {section.cards.map((card, index) => (
+          <TabButton 
+            key={index} 
+            $active={activeTab === index}
+            onClick={() => setActiveTab(index)}
+          >
+            <span className="number">0{index + 1}</span>
+            <span className="title">{card.title}</span>
+          </TabButton>
+        ))}
+      </TabsSidebar>
+      
+      <TabsContent>
+        <AnimatePresence mode="wait">
+          <TabContentPane
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ContentHeader>
+              <h3>{section.cards[activeTab].title}</h3>
+            </ContentHeader>
+            <ContentBody>
+              <p>{section.cards[activeTab].text}</p>
+              {section.cards[activeTab].list && (
+                <List>
+                  {section.cards[activeTab].list.map((item, i) => (
+                    <ListItem key={i}>{item}</ListItem>
+                  ))}
+                </List>
+              )}
+            </ContentBody>
+          </TabContentPane>
+        </AnimatePresence>
+      </TabsContent>
+    </TabsContainer>
+  );
+};
+
+const RenderLeftTimeline = ({ section }) => (
+  <LeftTimelineContainer>
+    {section.cards.map((card, index) => (
+      <TimelineRow 
+        key={index}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={rowVariants}
+      >
+        <TimelineDate>
+          <h4>{card.title.split('(')[0].replace(/1\.|2\.|3\.|4\.|5\.|6\./, '').trim()}</h4>
+        </TimelineDate>
+        <TimelineDotIndicator />
+        <TimelineContentCard>
+          <TimelineCardText>{card.text}</TimelineCardText>
+          {card.list && (
+            <List>
+              {card.list.map((item, i) => (
+                <ListItem key={i}>{item}</ListItem>
+              ))}
+            </List>
+          )}
+        </TimelineContentCard>
+      </TimelineRow>
+    ))}
+  </LeftTimelineContainer>
+);
+
 const ContentSections = () => {
   return (
     <>
-      {sectionsData.map((section, sectionIndex) => (
+      {sectionsData.map((section) => (
         <SectionWrapper 
           key={section.id} 
           id={section.id}
@@ -499,30 +603,12 @@ const ContentSections = () => {
               </SectionDescription>
             </SectionHeader>
 
-            <Grid $cols={section.cards.length >= 3 ? 3 : section.cards.length}>
-              {section.cards.map((card, cardIndex) => (
-                <Card
-                  key={cardIndex}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  custom={cardIndex}
-                  variants={cardVariants}
-                  whileHover={{ scale: 1.03 }}
-                >
-                  {/* <CardIcon>{section.icon}</CardIcon> */}
-                  <CardTitle>{card.title}</CardTitle>
-                  <CardText>{card.text}</CardText>
-                  {card.list && (
-                    <List>
-                      {card.list.map((item, itemIndex) => (
-                        <ListItem key={itemIndex}>{item}</ListItem>
-                      ))}
-                    </List>
-                  )}
-                </Card>
-              ))}
-            </Grid>
+            {section.layout === 'timeline' ? (
+              <RenderLeftTimeline section={section} />
+            ) : (
+              <RenderTabsLayout section={section} />
+            )}
+            
           </Container>
         </SectionWrapper>
       ))}

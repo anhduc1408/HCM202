@@ -158,14 +158,9 @@ const Overlay = styled(motion.div)`
 
 const navItems = [
   { name: 'Trang chủ', href: '#home' },
-  { name: 'Đối tượng & PP', href: '#objectives' },
-  { name: 'Sản xuất HH', href: '#production' },
-  { name: 'Hàng hóa & TT', href: '#commodity' },
-  { name: 'Quy luật GL', href: '#law' },
-  { name: 'Tư bản', href: '#capital' },
-  { name: 'Cạnh tranh', href: '#competition' },
-  { name: 'KT thị trường', href: '#market' },
-  { name: 'CNH - HĐH', href: '#industrialization' },
+  { name: 'Khái niệm & Đối tượng', href: '#chapter1' },
+  { name: 'Quá trình hình thành', href: '#chapter2' },
+  { name: 'Độc lập & CNXH', href: '#chapter3' },
   { name: 'Quiz', href: '#quiz' },
 ];
 
