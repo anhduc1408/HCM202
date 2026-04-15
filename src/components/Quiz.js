@@ -184,188 +184,249 @@ const ScoreHighlight = styled.span`
   font-size: ${({ theme }) => theme.fontSizes['3xl']};
   font-weight: 700;
   color: ${({ $score, theme }) =>
-    $score >= 7 ? '#22c55e' : $score >= 5 ? '#eab308' : '#ef4444'};
+    $score >= 17 ? '#22c55e' : $score >= 14 ? '#eab308' : '#ef4444'};
 `;
+
 const questions = [
   {
-    "id": 1,
-    "question": "Vì sao cần hoàn thiện thể chế kinh tế thị trường định hướng XHCN ở Việt Nam?",
-    "options": [
-      "A. Do yêu cầu hội nhập quốc tế",
-      "B. Do yêu cầu phát triển bền vững",
-      "C. Do yêu cầu phù hợp quy luật khách quan",
-      "D. Do yêu cầu nâng cao năng lực cạnh tranh"
+    id: 1,
+    question: "Động lực quan trọng nhất thúc đẩy Hồ Chí Minh ra đi tìm đường cứu nước là gì?",
+    options: [
+      "A. Sự thất bại của các phong trào yêu nước cuối thế kỷ XIX, đầu thế kỷ XX.",
+      "B. Chủ nghĩa yêu nước và truyền thống dân tộc.",
+      "C. Muốn tìm hiểu văn hóa phương Tây.",
+      "D. Sự tác động của Cách mạng Tháng Mười Nga."
     ],
-    "correct": 2,
-    "explanation": "Hoàn thiện thể chế là tất yếu khách quan, gắn với hội nhập và phát triển bền vững."
+    correct: 1,
+    explanation: "Chủ nghĩa yêu nước và truyền thống dân tộc là động lực gốc rễ, xuyên suốt cuộc đời hoạt động của Hồ Chí Minh."
   },
   {
-    "id": 2,
-    "question": "Một trong những nội dung hoàn thiện thể chế là gì?",
-    "options": [
-      "A. Hoàn thiện thể chế về sở hữu",
-      "B. Hoàn thiện thể chế về giáo dục",
-      "C. Hoàn thiện thể chế về quốc phòng",
-      "D. Hoàn thiện thể chế về văn hóa"
+    id: 2,
+    question: "Hồ Chí Minh tiếp thu yếu tố nào từ Nho giáo để vận dụng vào xây dựng Đảng và Nhà nước?",
+    options: [
+      "A. Tư tưởng quân chủ chuyên chế.",
+      "B. Tư tưởng phân biệt đẳng cấp.",
+      "C. Tư tưởng trọng đạo đức, trọng hiền tài.",
+      "D. Tư tưởng duy tâm."
     ],
-    "correct": 0,
-    "explanation": "Trọng tâm là sở hữu và phát triển các thành phần kinh tế."
+    correct: 2,
+    explanation: "Người đã gạt bỏ những yếu tố duy tâm, lạc hậu của Nho giáo và kế thừa những mặt tích cực như tinh thần trọng đạo đức, trọng hiền tài."
   },
   {
-    "id": 3,
-    "question": "Thể chế về sở hữu ở Việt Nam hiện nay có đặc điểm gì?",
-    "options": [
-      "A. Chỉ có sở hữu nhà nước",
-      "B. Chỉ có sở hữu tư nhân",
-      "C. Có nhiều hình thức sở hữu đa dạng",
-      "D. Không có sở hữu tập thể"
+    id: 3,
+    question: "Tài liệu nào của Lênin đã giúp Hồ Chí Minh tìm thấy con đường giải phóng dân tộc?",
+    options: [
+      "A. Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa.",
+      "B. Tuyên ngôn của Đảng Cộng sản.",
+      "C. Nhà nước và cách mạng.",
+      "D. Làm gì?"
     ],
-    "correct": 2,
-    "explanation": "Bao gồm nhà nước, tập thể, tư nhân."
+    correct: 0,
+    explanation: "Đọc Luận cương của Lênin năm 1920, Hồ Chí Minh đã tìm thấy con đường cứu nước đúng đắn cho dân tộc Việt Nam."
   },
   {
-    "id": 4,
-    "question": "Hoàn thiện thể chế phát triển đồng bộ các yếu tố thị trường nhằm mục tiêu gì?",
-    "options": [
-      "A. Tăng trưởng kinh tế nhanh",
-      "B. Phân bổ nguồn lực hiệu quả",
-      "C. Giảm vai trò nhà nước",
-      "D. Tăng thuế"
+    id: 4,
+    question: "Trong các cơ sở lý luận, nhân tố nào giữ vai trò quyết định đến thế giới quan và phương pháp luận của Hồ Chí Minh?",
+    options: [
+      "A. Nho giáo và Phật giáo.",
+      "B. Tinh hoa văn hóa phương Tây.",
+      "C. Chủ nghĩa Mác – Lênin.",
+      "D. Truyền thống yêu nước Việt Nam."
     ],
-    "correct": 1,
-    "explanation": "Đồng bộ các yếu tố thị trường giúp phân bổ nguồn lực hiệu quả."
+    correct: 2,
+    explanation: "Chủ nghĩa Mác - Lênin là cơ sở thế giới quan và phương pháp luận khoa học của tư tưởng Hồ Chí Minh."
   },
   {
-    "id": 5,
-    "question": "Một yếu tố thị trường cần hoàn thiện là gì?",
-    "options": [
-      "A. Thị trường lao động",
-      "B. Thị trường bất động sản",
-      "C. Thị trường vốn",
-      "D. Thị trường khoa học công nghệ"
+    id: 5,
+    question: "Sự kiện nào đánh dấu bước ngoặt quyết định trong cuộc đời hoạt động của Hồ Chí Minh, từ người yêu nước trở thành người cộng sản?",
+    options: [
+      "A. Khi Người rời cảng Nhà Rồng ra đi tìm đường cứu nước (1911).",
+      "B. Khi Người gửi Bản yêu sách của nhân dân An Nam tới Hội nghị Véc-xai (1919).",
+      "C. Khi Người đọc Luận cương của Lênin và bỏ phiếu tán thành gia nhập Quốc tế III, tham gia thành lập Đảng Cộng sản Pháp (12/1920).",
+      "D. Khi Người thành lập Hội Việt Nam Cách mạng Thanh niên (1925)."
     ],
-    "correct": 0,
-    "explanation": "Thị trường lao động là yếu tố quan trọng cần hoàn thiện."
+    correct: 2,
+    explanation: "Việc gia nhập Quốc tế III và tham gia sáng lập Đảng Cộng sản Pháp đánh dấu bước chuyển về chất trong tư tưởng của Người."
   },
   {
-    "id": 6,
-    "question": "Hoàn thiện thể chế để gắn tăng trưởng với công bằng xã hội nhằm mục tiêu nào?",
-    "options": [
-      "A. Giảm bất bình đẳng",
-      "B. Bảo đảm tiến bộ xã hội",
-      "C. Thúc đẩy hội nhập quốc tế",
-      "D. Nâng cao năng lực cạnh tranh quốc gia"
+    id: 6,
+    question: "Câu nói nổi tiếng nào thể hiện rõ nhất tư tưởng Hồ Chí Minh về quyền dân tộc?",
+    options: [
+      "A. \"Nước Việt Nam là một, dân tộc Việt Nam là một\".",
+      "B. \"Không có gì quý hơn độc lập, tự do\".",
+      "C. \"Độc lập mà dân không được hạnh phúc thì độc lập cũng không có nghĩa lý gì\".",
+      "D. \"Tất cả mọi người đều sinh ra có quyền bình đẳng\"."
     ],
-    "correct": 0,
-    "explanation": "Giảm bất bình đẳng là mục tiêu trọng yếu."
+    correct: 1,
+    explanation: "\"Không có gì quý hơn độc lập, tự do\" là chân lý bất hủ, là mục tiêu cao cả nhất của dân tộc Việt Nam."
   },
   {
-    "id": 7,
-    "question": "Vai trò của Nhà nước trong kinh tế thị trường định hướng XHCN là gì?",
-    "options": [
-      "A. Buông lỏng quản lý",
-      "B. Điều tiết và định hướng phát triển",
-      "C. Chỉ làm trọng tài",
-      "D. Không tham gia"
+    id: 7,
+    question: "Theo Hồ Chí Minh, độc lập dân tộc phải gắn liền với điều gì để thực sự có ý nghĩa?",
+    options: [
+      "A. Sự hỗ trợ từ quốc tế.",
+      "B. Tự do và hạnh phúc của nhân dân.",
+      "C. Sức mạnh quân sự.",
+      "D. Sự phát triển kinh tế thị trường."
     ],
-    "correct": 1,
-    "explanation": "Nhà nước giữ vai trò điều tiết và định hướng."
+    correct: 1,
+    explanation: "Người nhấn mạnh độc lập phải mang lại đời sống ấm no, tự do cho nhân dân thì mới là độc lập thực sự."
   },
   {
-    "id": 8,
-    "question": "Một nội dung quan trọng của hoàn thiện thể chế là nâng cao năng lực hệ thống chính trị. Điều này nhằm:",
-    "options": [
-      "A. Tăng cường quản lý xã hội",
-      "B. Đảm bảo ổn định chính trị",
-      "C. Tạo môi trường cho phát triển kinh tế",
-      "D. Nâng cao năng lực cạnh tranh quốc tế"
+    id: 8,
+    question: "Mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh là gì?",
+    options: [
+      "A. Độc lập dân tộc là mục tiêu cuối cùng.",
+      "B. Chủ nghĩa xã hội là tiền đề của độc lập dân tộc.",
+      "C. Độc lập dân tộc là tiền đề; chủ nghĩa xã hội là điều kiện để giữ vững độc lập.",
+      "D. Hai nội dung này không có quan hệ với nhau."
     ],
-    "correct": 1,
-    "explanation": "Đảm bảo ổn định chính trị là mục tiêu then chốt."
+    correct: 2,
+    explanation: "Độc lập dân tộc là mục tiêu trước hết, là tiền đề để xây dựng CNXH; ngược lại CNXH giúp bảo vệ vững chắc độc lập."
   },
   {
-    "id": 9,
-    "question": "Hội nhập quốc tế trong hoàn thiện thể chế kinh tế thị trường định hướng XHCN có ý nghĩa gì?",
-    "options": [
-      "A. Mở rộng thị trường",
-      "B. Thu hút đầu tư nước ngoài",
-      "C. Nâng cao năng lực cạnh tranh",
-      "D. Tăng cường hợp tác khu vực"
+    id: 9,
+    question: "Nhận diện \"cách mạng màu\" trong giai đoạn hiện nay theo tài liệu là gì?",
+    options: [
+      "A. Một cuộc cách mạng quân sự trực tiếp.",
+      "B. Thủ đoạn lật đổ chế độ thông qua diễn biến hòa bình, lợi dụng dân chủ, nhân quyền.",
+      "C. Một phong trào đòi quyền lợi kinh tế của công nhân.",
+      "D. Quá trình chuyển đổi sang kinh tế thị trường."
     ],
-    "correct": 0,
-    "explanation": "Mở rộng thị trường là ý nghĩa nổi bật."
+    correct: 1,
+    explanation: "Cách mạng màu là hình thức can thiệp phi quân sự nhưng nhằm mục tiêu lật đổ chính quyền thông qua diễn biến hòa bình."
   },
   {
-    "id": 10,
-    "question": "Một thách thức khi hoàn thiện thể chế kinh tế thị trường định hướng XHCN là gì?",
-    "options": [
-      "A. Cạnh tranh gay gắt",
-      "B. Chênh lệch phát triển vùng miền",
-      "C. Vấn đề môi trường",
-      "D. Thiếu nguồn nhân lực chất lượng cao"
+    id: 10,
+    question: "Giải pháp quan trọng nhất để chống \"cách mạng màu\" là gì?",
+    options: [
+      "A. Đóng cửa biên giới.",
+      "B. Xây dựng khối đại đoàn kết dân tộc và niềm tin của dân vào Đảng.",
+      "C. Tăng cường mua sắm vũ khí.",
+      "D. Cấm sử dụng mạng xã hội."
     ],
-    "correct": 0,
-    "explanation": "Cạnh tranh gay gắt là thách thức lớn."
+    correct: 1,
+    explanation: "Sức mạnh từ sự đồng thuận của nhân dân và niềm tin vào Đảng là thành trì vững chắc nhất bảo vệ chế độ."
   },
   {
-    "id": 11,
-    "question": "Lợi ích kinh tế là gì?",
-    "options": [
-      "A. Nhu cầu vật chất của con người",
-      "B. Mối quan hệ giữa người lao động và tư bản",
-      "C. Những lợi ích gắn với việc thỏa mãn nhu cầu kinh tế",
-      "D. Lợi nhuận doanh nghiệp"
+    id: 11,
+    question: "Theo Hồ Chí Minh, Đảng Cộng sản Việt Nam là sự kết hợp của những yếu tố nào?",
+    options: [
+      "A. Chủ nghĩa Mác - Lênin và phong trào công nhân.",
+      "B. Chủ nghĩa Mác - Lênin và phong trào yêu nước.",
+      "C. Chủ nghĩa Mác - Lênin + phong trào công nhân + phong trào yêu nước.",
+      "D. Phong trào công nhân và phong trào nông dân."
     ],
-    "correct": 2,
-    "explanation": "Lợi ích kinh tế phản ánh nhu cầu và động lực kinh tế."
+    correct: 2,
+    explanation: "Đây là quy luật hình thành Đảng Cộng sản Việt Nam, khác biệt so với các Đảng ở châu Âu khi có thêm yếu tố phong trào yêu nước."
   },
   {
-    "id": 12,
-    "question": "Quan hệ lợi ích kinh tế là gì?",
-    "options": [
-      "A. Quan hệ giữa các chủ thể về lợi ích kinh tế",
-      "B. Quan hệ chính trị",
-      "C. Quan hệ văn hóa",
-      "D. Quan hệ xã hội nói chung"
+    id: 12,
+    question: "Nguyên tắc tổ chức cơ bản nhất của Đảng là gì?",
+    options: [
+      "A. Tự phê bình và phê bình.",
+      "B. Đoàn kết thống nhất.",
+      "C. Tập trung dân chủ.",
+      "D. Kỷ luật nghiêm minh."
     ],
-    "correct": 0,
-    "explanation": "Đây là quan hệ giữa các chủ thể trong nền kinh tế."
+    correct: 2,
+    explanation: "Tập trung dân chủ là nguyên tắc sống còn, đảm bảo sức mạnh và sự thống nhất của Đảng Cộng sản."
   },
   {
-    "id": 13,
-    "question": "Quan hệ lợi ích kinh tế có đặc điểm gì?",
-    "options": [
-      "A. Luôn thống nhất",
-      "B. Luôn mâu thuẫn",
-      "C. Vừa thống nhất vừa mâu thuẫn",
-      "D. Không liên quan"
+    id: 13,
+    question: "Hồ Chí Minh ví việc \"tự phê bình và phê bình\" trong Đảng như công việc gì hàng ngày?",
+    options: [
+      "A. Quét dọn nhà cửa.",
+      "B. Rửa mặt.",
+      "C. Ăn cơm.",
+      "D. Tập thể dục."
     ],
-    "correct": 2,
-    "explanation": "Có sự thống nhất và mâu thuẫn."
+    correct: 1,
+    explanation: "Rửa mặt hàng ngày giúp sạch sẽ, cũng như tự phê bình và phê bình giúp Đảng luôn trong sạch, vững mạnh."
   },
   {
-    "id": 14,
-    "question": "Một nhân tố ảnh hưởng đến quan hệ lợi ích kinh tế là gì?",
-    "options": [
-      "A. Trình độ phát triển lực lượng sản xuất",
-      "B. Chính sách của Nhà nước",
-      "C. Cơ cấu sở hữu",
-      "D. Trình độ dân trí"
+    id: 14,
+    question: "Bản chất của Nhà nước theo tư tưởng Hồ Chí Minh là gì?",
+    options: [
+      "A. Nhà nước quân chủ.",
+      "B. Nhà nước pháp quyền tư sản.",
+      "C. Nhà nước của nhân dân, do nhân dân, vì nhân dân.",
+      "D. Nhà nước toàn trị."
     ],
-    "correct": 0,
-    "explanation": "Trình độ phát triển lực lượng sản xuất là nhân tố quan trọng."
+    correct: 2,
+    explanation: "Nhà nước do nhân dân làm chủ, phục vụ lợi ích của nhân dân là cốt lõi trong tư tưởng Hồ Chí Minh."
   },
   {
-    "id": 15,
-    "question": "Một số quan hệ lợi ích cơ bản trong nền kinh tế thị trường là gì?",
-    "options": [
-      "A. Quan hệ giữa người lao động và chủ sử dụng lao động",
-      "B. Quan hệ giữa nhà nước và doanh nghiệp",
-      "C. Quan hệ giữa doanh nghiệp với doanh nghiệp",
-      "D. Quan hệ giữa doanh nghiệp và ngân hàng"
+    id: 15,
+    question: "\"Việc gì có lợi cho dân, ta phải hết sức làm. Việc gì có hại cho dân, ta phải hết sức tránh\" thể hiện đặc điểm nào của Nhà nước?",
+    options: [
+      "A. Nhà nước của dân.",
+      "B. Nhà nước do dân.",
+      "C. Nhà nước vì dân.",
+      "D. Nhà nước pháp quyền."
     ],
-    "correct": 0,
-    "explanation": "Quan hệ giữa người lao động và chủ sử dụng lao động là cơ bản."
+    correct: 2,
+    explanation: "Câu nói này nhấn mạnh mục tiêu phục vụ vô điều kiện lợi ích của nhân dân – đặc trưng của Nhà nước vì dân."
+  },
+  {
+    id: 16,
+    question: "Theo Hồ Chí Minh, căn bệnh nào là nguyên nhân chính dẫn đến tham nhũng, lãng phí?",
+    options: [
+      "A. Bệnh quan liêu.",
+      "B. Bệnh lười biếng.",
+      "C. Bệnh kiêu ngạo.",
+      "D. Bệnh thành tích."
+    ],
+    correct: 0,
+    explanation: "Quan liêu là nguồn gốc của tham ô, lãng phí và xa rời quần chúng nhân dân."
+  },
+  {
+    id: 17,
+    question: "Hai tiêu chuẩn cần và đủ của một cán bộ cách mạng theo Hồ Chí Minh là gì?",
+    options: [
+      "A. Tài năng và bằng cấp.",
+      "B. Đức và Tài.",
+      "C. Sức khỏe và kinh nghiệm.",
+      "D. Quan hệ rộng và năng lực."
+    ],
+    correct: 1,
+    explanation: "Cán bộ phải có cả đạo đức cách mạng (đức) và năng lực chuyên môn (tài), trong đó đức là gốc."
+  },
+  {
+    id: 18,
+    question: "Nhà nước \"do nhân dân\" có nghĩa là gì?",
+    options: [
+      "A. Nhân dân làm chủ, tham gia quản lý và giám sát nhà nước.",
+      "B. Nhân dân làm mọi việc thay cho nhà nước.",
+      "C. Nhà nước chỉ tồn tại khi có sự cho phép của nước khác.",
+      "D. Nhân dân không cần đóng thuế."
+    ],
+    correct: 0,
+    explanation: "Nhà nước do dân lập nên thông qua bầu cử và đặt dưới sự kiểm soát, giám sát của nhân dân."
+  },
+  {
+    id: 19,
+    question: "\"Cần, Kiệm, Liêm, Chính, Chí công vô tư\" là những phẩm chất đạo đức của đối tượng nào?",
+    options: [
+      "A. Chỉ dành cho lãnh đạo cao cấp.",
+      "B. Dành cho mọi cán bộ, đảng viên.",
+      "C. Dành cho học sinh, sinh viên.",
+      "D. Dành cho doanh nhân."
+    ],
+    correct: 1,
+    explanation: "Đây là những chuẩn mực đạo đức cách mạng cơ bản nhất mà mọi cán bộ, đảng viên đều phải có."
+  },
+  {
+    id: 20,
+    question: "Tại sao trong giai đoạn hiện nay, để bảo vệ nền độc lập dân tộc, Hồ Chí Minh lại đặc biệt nhấn mạnh đến việc xây dựng \"thế trận lòng dân\"?",
+    options: [
+      "A. Để huy động nguồn lực kinh tế trong nhân dân.",
+      "B. Vì khi có lòng dân là có tất cả; dân là bức tường thành vững chắc nhất chống lại mọi âm mưu chia rẽ, lật đổ (\"cách mạng màu\").",
+      "C. Để phục vụ cho các chiến dịch bầu cử đại biểu Quốc hội.",
+      "D. Để nhân dân thay thế hoàn toàn vai trò của các lực lượng vũ trang."
+    ],
+    correct: 1,
+    explanation: "Lòng dân là sức mạnh vô địch, là yếu tố quyết định thắng lợi của mọi sự nghiệp cách mạng và bảo vệ Tổ quốc."
   }
 ];
 
@@ -437,14 +498,14 @@ const Quiz = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Kết Quả Quiz
+              Kết Quả Bài Ôn Tập
             </QuizTitle>
             <QuizDescription
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Chúc mừng bạn đã hoàn thành bài quiz!
+              Chúc mừng bạn đã hoàn thành bài ôn tập Tư tưởng Hồ Chí Minh!
             </QuizDescription>
           </QuizHeader>
           
@@ -459,10 +520,10 @@ const Quiz = () => {
                 Bạn đã trả lời đúng <ScoreHighlight $score={score}>{score}/{questions.length}</ScoreHighlight> câu hỏi
               </ResultScore>
               <ResultScore>
-                {score >= 8 ? "Xuất sắc! Bạn đã nắm vững kiến thức  Chương 5: Kinh tế thị trường định hướng xã hội chủ nghĩa và các quan hệ lợi ích kinh tế ở Việt Nam" :
-                 score >= 6 ? "Tốt lắm! Kiến thức của bạn khá vững chắc." :
-                 score >= 4 ? "Không tồi! Hãy tiếp tục học tập để củng cố kiến thức." :
-                 "Hãy chú ý học kỹ hơn về Kinh tế chính trị Mác - Lênin nhé!"}
+                {score >= 17 ? "Xuất sắc! Bạn đã nắm vững kiến thức môn Tư tưởng Hồ Chí Minh. Chúc bạn đạt điểm cao!" :
+                 score >= 14 ? "Tốt lắm! Kiến thức của bạn khá vững chắc về HCM202." :
+                 score >= 10 ? "Không tồi! Hãy tiếp tục ôn tập để củng cố kiến thức." :
+                 "Hãy tập trung ôn tập kỹ hơn về các nội dung trọng tâm của môn học nhé!"}
               </ResultScore>
               
               <ButtonContainer>
@@ -494,14 +555,14 @@ const Quiz = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Kiểm Tra Kiến Thức
+            Ôn Tập Tư Tưởng Hồ Chí Minh
           </QuizTitle>
           <QuizDescription
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Hãy kiểm tra kiến thức của bạn về Kinh tế chính trị Mác - Lênin
+            Kiểm tra kiến thức của bạn về môn HCM202 – 20 câu hỏi trọng tâm
           </QuizDescription>
         </QuizHeader>
         
