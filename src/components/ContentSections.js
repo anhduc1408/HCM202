@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 // --- STYLED COMPONENTS FOR CONTAINERS & HEADERS ---
 const SectionWrapper = styled.section`
   padding: ${({ theme }) => theme.spacing['4xl']} 0;
-  background: ${({ $bg, theme }) => 
-    $bg === 'dark' ? theme.colors.bgPrimary : 
-    $bg === 'secondary' ? theme.colors.bgSecondary : 
-    theme.colors.bgPrimary};
+  background: ${({ $bg, theme }) =>
+    $bg === 'dark' ? theme.colors.bgPrimary :
+      $bg === 'secondary' ? theme.colors.bgSecondary :
+        theme.colors.bgPrimary};
   overflow-x: hidden;
   border-bottom: 1px solid rgba(0,0,0,0.05);
 `;
@@ -308,8 +308,8 @@ const TimelineCardText = styled.p`
 // --- ANIMATION VARIANTS ---
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6 }
   }
@@ -317,7 +317,7 @@ const sectionVariants = {
 
 const rowVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
+  visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" }
@@ -329,157 +329,209 @@ const rowVariants = {
 const sectionsData = [
   {
     id: 'chapter1',
-    number: 'CHƯƠNG I',
-    layout: 'tabs',
-    title: 'Khái niệm, Đối tượng & Phương pháp học tập',
-    description: 'Chương mở đầu định hình nền tảng tư duy lý luận về môn Tư tưởng Hồ Chí Minh.',
-    bg: 'primary',
+    number: 'CHỦ ĐỀ 1',
+    layout: 'timeline',
+    title: 'CƠ SỞ VÀ QUÁ TRÌNH HÌNH THÀNH, PHÁT TRIỂN TƯ TƯỞNG HỒ CHÍ MINH',
+    description: 'Khảo sát cơ sở thực tiễn, lý luận, nhân tố chủ quan và quá trình hình thành - phát triển tư tưởng Hồ Chí Minh.',
+    bg: 'secondary',
     cards: [
       {
-        title: 'Khái niệm Tư tưởng Hồ Chí Minh',
-        text: 'Theo Văn kiện Đại hội XI của Đảng (2011), Tư tưởng Hồ Chí Minh là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam.',
+        title: 'Cơ sở thực tiễn',
+        text: 'Trong nước: Cuối thế kỷ XIX - đầu thế kỷ XX, thực dân Pháp xâm lược khiến xã hội biến đổi. Thế giới: Chủ nghĩa đế quốc và Cách mạng Tháng Mười Nga (1917) mở ra con đường giải phóng mới.',
         list: [
-          'Kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác – Lênin vào điều kiện cụ thể của Việt Nam.',
-          'Sự kế thừa và phát triển các giá trị truyền thống dân tộc, vươn tầm tiếp thu tinh hoa văn hóa nhân loại.',
-          'Mục tiêu cốt lõi: giải phóng dân tộc, giai cấp, con người.'
+          'Trong nước: Các phong trào yêu nước (Cần Vương, Đông Du...) lần lượt thất bại.',
+          'Yêu cầu cấp bách: tìm con đường cứu nước mới phù hợp với thực tiễn dân tộc.',
+          'Thế giới: chủ nghĩa đế quốc hình thành và bóc lột thuộc địa; Cách mạng Tháng Tám Nga (1917) thành công.',
+          '=> Giải quyết sự khủng hoảng về đường lối cứu nước.'
         ]
       },
       {
-        title: 'Đối tượng nghiên cứu',
-        text: 'Nghiên cứu toàn bộ hệ thống quan điểm của Chủ Tịch Hồ Chí Minh và quá trình thực tiễn cách mạng vươn lên giành độc lập của dân tộc Việt Nam.',
+        title: 'Cơ sở lý luận',
+        text: 'Sự kết hợp giữa truyền thống dân tộc, tinh hoa văn hóa nhân loại và Chủ nghĩa Mác–Lênin làm nền tảng lý luận cho tư tưởng Hồ Chí Minh.',
         list: [
-          'Hệ thống quan điểm thông qua các tác phẩm, bài nói, bài viết, hoạt động thực tiễn của Người.',
-          'Quá trình hình thành, phát triển và vận dụng tư tưởng trong thực tiễn CMVN.',
-          'Làm rõ giá trị lý luận và thực tiễn, cũng như các quy luật được đúc kết.'
+          'Truyền thống dân tộc: yêu nước, đoàn kết, nhân nghĩa.',
+          'Tinh hoa phương Đông: Nho giáo (đạo đức, trọng hiền tài), Phật giáo (từ bi, bình đẳng), Lão giáo (hòa hợp với tự nhiên).',
+          'Tinh hoa phương Tây: tư tưởng dân chủ, nhân quyền (Tuyên ngôn Độc lập Mỹ 1776; Tuyên ngôn Nhân quyền Pháp 1789).',
+          'Chủ nghĩa Mác–Lênin: giữ vai trò quyết định; Hồ Chí Minh đặc biệt tiếp thu Luận cương của Lênin (1920).',
+          '=> Chủ nghĩa Mác–Lênin là bước phát triển về chất trong tư tưởng của Người.'
         ]
       },
       {
-        title: 'Phương pháp luận cốt lõi',
-        text: 'Hệ thống đánh giá dựa trên nền tảng triết học khách quan, toàn diện và sự thống nhất giữa tính Đảng và tính khoa học.',
+        title: 'Nhân tố chủ quan Hồ Chí Minh',
+        text: 'Những phẩm chất cá nhân và năng lực tư tưởng của Hồ Chí Minh là nhân tố quyết định trong quá trình vận dụng lý luận vào thực tiễn.',
         list: [
-          'Lấy thực tiễn làm tiêu chuẩn kiểm nghiệm chân lý.',
-          'Phân tích theo hệ quy chiếu lịch sử – cụ thể, nhìn nhận mọi sự vật toàn diện.',
-          'Luôn kế thừa và phát triển sáng tạo so với góc nhìn cũ.'
+          'Tư duy độc lập, sáng tạo, có tầm nhìn quốc tế.',
+          'Lòng yêu nước sâu sắc và ý chí giải phóng dân tộc mãnh liệt.',
+          'Khả năng tổng kết thực tiễn, phát triển lý luận và tổ chức cách mạng.'
         ]
       },
       {
-        title: 'Kỹ thuật Phương pháp cụ thể',
-        text: 'Sử dụng các phương pháp đặc thù và liên ngành trong việc xác định các bài học lý luận vô giá.',
+        title: 'Quá trình hình thành và phát triển',
+        text: 'Những mốc lịch sử chính đánh dấu quá trình chuyển biến từ yêu nước truyền thống sang đường lối cách mạng vô sản.',
         list: [
-          'Kết hợp chặt chẽ cấu trúc mô hình dòng chảy logic và quy luật lịch sử.',
-          'Phân tích văn bản gắn với hoạt động thực tiễn nổi bật tương ứng.',
-          'Ứng dụng sâu sắc khối kiến thức: Triết học, khoa học chính trị và nhân chủng học.'
+          '1890–1911: Hình thành lòng yêu nước và chí hướng cứu nước mới.',
+          '1911–1920: Ra đi tìm đường cứu nước, khảo sát thực tế thế giới; mốc 7/1920 đọc Luận cương của Lênin — "Hạnh phúc là đây, cơm áo là đây!".',
+          '1920–1930: Chuẩn bị chính trị, tư tưởng và tổ chức; hướng tới thành lập Đảng Cộng sản Việt Nam (1930).',
+          '1930–1945: Vượt qua thử thách, giữ vững đường lối giải phóng dân tộc; Tổng khởi nghĩa Tháng Tám (1945).',
+          '1945–1969: Hoàn thiện tư tưởng về xây dựng Nhà nước, kháng chiến chống Pháp — Mỹ và xây dựng CNXH.'
         ]
       },
       {
-        title: 'Ý nghĩa của việc học tập',
-        text: 'Giáo dục tư tưởng, chính trị, đạo đức và phong cách chuẩn mực cho thế hệ trí thức tương lai.',
+        title: 'Giá trị tư tưởng Hồ Chí Minh',
+        text: 'Tư tưởng Hồ Chí Minh có giá trị lý luận và thực tiễn sâu sắc đối với Việt Nam và phong trào giải phóng dân tộc toàn cầu.',
         list: [
-          'Nâng tầm tư duy biện chứng và rèn giũa bản lĩnh kiên gan.',
-          'Củng cố niềm tin bất diệt vào độc lập dân tộc tiến cùng tiến trình CNXH.',
-          'Sống và làm việc theo tấm gương đạo đức sáng rọi của Hồ Chủ Tịch.'
+          'Với Việt Nam: là nền tảng tư tưởng, kim chỉ nam cho hành động của Đảng và dân tộc.',
+          'Với thế giới: mở ra con đường giải phóng cho các dân tộc bị áp bức và đóng góp vào tiến bộ xã hội toàn cầu.'
         ]
       }
     ]
   },
   {
     id: 'chapter2',
-    number: 'CHƯƠNG II',
-    layout: 'timeline',
-    title: 'Cơ sở & Tiến trình Dấu ấn Lịch sử',
-    description: 'Chương II theo dõi sự biến đổi thực tiễn và nhận thức vĩ đại qua các mốc thời gian chói lọi.',
-    bg: 'secondary',
+    number: 'CHỦ ĐỀ 2',
+    layout: 'tabs',
+    title: 'TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC VÀ CHỦ NGHĨA XÃ HỘI',
+    description: 'Phân tích mối quan hệ giữa độc lập dân tộc và con đường xây dựng chủ nghĩa xã hội theo tư tưởng Hồ Chí Minh.',
+    bg: 'primary',
     cards: [
       {
-        title: 'Thực tiễn',
-        text: 'Bối cảnh lịch sử trong nước và quốc tế định hình tư duy tìm đường cứu nước.',
+        title: 'Độc lập dân tộc',
+        text: 'Độc lập là quyền thiêng liêng, gắn liền với hạnh phúc của nhân dân và quyền tự quyết quốc gia.',
         list: [
-          'Giai đoạn u ám: Các phong trào yêu nước liên tiếp chìm trong bể máu và thất bại.',
-          'Mệnh lệnh lịch sử: Phải tìm ra lối thoát độc lập triệt để cho dân tộc.'
+          '"Không có gì quý hơn độc lập, tự do" — quan điểm cốt lõi.',
+          'Độc lập phải gắn với hạnh phúc: dân có cơm ăn, áo mặc, được học hành.',
+          'Độc lập thật sự: quyền tự quyết về ngoại giao, quân đội, nghị viện và nền tài chính riêng.',
+          'Thống nhất lãnh thổ: khẳng định chủ quyền không thể chia cắt.'
         ]
       },
       {
-        title: 'Cơ sở Lý luận',
-        text: 'Sự kết hợp hoàn hảo giữa chất liệu Á - Âu và tư tưởng Marxist.',
+        title: 'Cách mạng giải phóng dân tộc',
+        text: 'Giải phóng dân tộc phải là cách mạng do Đảng Cộng sản lãnh đạo, dựa trên liên minh toàn dân và phương pháp chiến lược sáng tạo.',
         list: [
-          'Hồn cốt Á châu: Nhân nghĩa, đoàn kết cộng đồng, triết lý Lão, Phật.',
-          'Tầm nhìn Âu - Mỹ: Tinh hoa dân chủ, khát vọng nhân quyền.',
-          'Đỉnh cao nhận thức: Ánh sáng của luận cương Lênin chiếu rọi con đường vô sản.'
+          'Muốn cứu nước không có con đường nào khác ngoài cách mạng vô sản.',
+          'Đảng Cộng sản lãnh đạo: Đảng vững cách mệnh mới thành công.',
+          'Lực lượng là toàn dân; nền tảng là liên minh công — nông — trí.',
+          'Kết hợp đấu tranh chính trị và đấu tranh vũ trang.'
         ]
       },
       {
-        title: 'Nhân tố vị nhân',
-        text: 'Thiên tài Nguyễn Ái Quốc - Hội tụ yếu tố khách quan và nỗ lực phi thường.',
+        title: 'Chủ nghĩa xã hội',
+        text: 'CNXH là xã hội do nhân dân làm chủ, vì con người, thực hiện công bằng và văn minh.',
         list: [
-          'Tầm nhìn sắc bén vượt thời đại, thoát ly các giới hạn sĩ phu cũ.',
-          'Ý chí rèn luyện bền bỉ trải qua hàng chục năm bôn ba lao động.'
+          'Mục tiêu: dân giàu, nước mạnh, dân chủ, công bằng, văn minh.',
+          'Bản chất: nhân dân làm chủ; xã hội vì con người.',
+          'Kinh tế phát triển và đời sống nhân dân ngày càng được nâng cao.'
         ]
       },
       {
-        title: 'Trước 1911 - 1930',
-        text: 'Chông gai tìm đường và tạo lập hạt giống cách mạng vĩ đại.',
+        title: 'Mục tiêu và động lực xây dựng CNXH',
+        text: 'Xác định mục tiêu quốc gia và những động lực then chốt để tiến lên CNXH.',
         list: [
-          '1911-1920: Chia tay bến Nhà Rồng, hoà mình vào dòng chảy lao khổ thế giới, bắt gặp chân lý Mác-Lênin.',
-          '1920-1930: Xây dựng nền tảng tư tưởng, truyền bá ánh sáng về nước, sáng lập ĐCS Việt Nam lịch sử.'
+          'Mục tiêu: xây dựng Việt Nam hòa bình, độc lập, thống nhất, giàu mạnh.',
+          'Động lực: con người là trung tâm; đại đoàn kết toàn dân; khoa học — công nghệ; vai trò cán bộ, đảng viên.'
         ]
       },
       {
-        title: '1930 - 1969',
-        text: 'Ánh trăng chiếu sáng muôn dân, chèo lái con thuyền dân tộc.',
+        title: 'Thời kỳ quá độ lên CNXH',
+        text: 'Đặc điểm, nhiệm vụ và nguyên tắc trong thời kỳ quá độ lên CNXH ở Việt Nam.',
         list: [
-          '1930-1945: Tổng khởi nghĩa Tháng Tám thần thánh.',
-          '1945-1969: Lãnh đạo cuộc chiến vệ quốc 9 năm, đặt móng nhà nước Dân chủ tiến lên CNXH.'
+          'Việt Nam tiến lên CNXH từ một nước nông nghiệp lạc hậu, có lộ trình đặc thù.',
+          'Nhiệm vụ: xây dựng xã hội mới trên mọi lĩnh vực; cải tạo tàn dư của xã cũ.',
+          'Nguyên tắc: giữ vững độc lập dân tộc; kết hợp xây và chống; gắn kết với đoàn kết quốc tế.'
+        ]
+      },
+      {
+        title: 'Quan hệ giữa độc lập dân tộc và CNXH',
+        text: 'Độc lập dân tộc và CNXH là hai mục tiêu gắn bó chặt chẽ trong tư tưởng Hồ Chí Minh.',
+        list: [
+          'Độc lập dân tộc là tiền đề để tiến lên CNXH.',
+          'CNXH là bảo đảm vững chắc nhất cho độc lập dân tộc.',
+          'Hai mục tiêu gắn bó hữu cơ, không tách rời.'
         ]
       }
     ]
   },
   {
     id: 'chapter3',
-    number: 'CHƯƠNG III',
+    number: 'CHỦ ĐỀ 3',
     layout: 'tabs',
-    title: 'Độc lập Dân tộc gắn với Chủ nghĩa Xã hội',
-    description: 'Bản lề khát vọng thiêng liêng nhất xuyên suốt toàn bộ sự nghiệp chính trị Hồ Chí Minh.',
+    title: 'TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐẢNG CỘNG SẢN VIỆT NAM VÀ NHÀ NƯỚC CỦA NHÂN DÂN, DO NHÂN DÂN, VÌ NHÂN DÂN',
+    description: 'Tư tưởng Hồ Chí Minh về vai trò lãnh đạo của Đảng và xây dựng Nhà nước phục vụ nhân dân.',
     bg: 'primary',
     cards: [
       {
-        title: 'Độc lập dân tộc',
-        text: '"Không có gì quý hơn độc lập tự do". Đặc trưng độc lập dân tộc mang chiều kích đầy đủ nhất.',
+        title: 'Tính tất yếu và vai trò lãnh đạo của Đảng',
+        text: 'Đảng là nhân tố quyết định mọi thắng lợi của cách mạng Việt Nam.',
         list: [
-          'Độc lập phải là món quà thực tiễn: Cơm no, áo ấm, mọi người đều được học hành.',
-          'Độc lập toàn vẹn tuyệt đối về mặt chủ quyền địa lý và tự định đoạt số phận chính trị.'
+          'Tính tất yếu: Đảng cách mạng là điều kiện tiên quyết cho cách mạng.',
+          'Sự ra đời của Đảng: kết hợp Chủ nghĩa Mác-Lênin, phong trào công nhân và phong trào yêu nước.'
         ]
       },
       {
-        title: 'Khoa học Giải phóng dân tộc',
-        text: 'Chiến lược đánh bại ách đô hộ một cách hệ thống dựa vào quần chúng.',
+        title: 'Bản chất và quy luật tồn tại của Đảng',
+        text: 'Đảng là đội tiên phong của giai cấp công nhân và đại diện lợi ích của nhân dân lao động.',
         list: [
-          'Cốt lõi tiên quyết: Dưới ngọn cờ của Đảng Cộng sản kiên định.',
-          'Đoàn kết rộng rãi toàn diện trên nền tảng liên minh Công - Nông - Trí.',
-          'Nghệ thuật làm chủ nhịp độ: Kết hợp linh hoạt đấu tranh chính trị, ngoại giao với vũ trang.'
+          'Đảng đại diện cho lợi ích của toàn dân tộc.',
+          'Đảng lãnh đạo Nhà nước và xã hội nhưng phải là "đầy tớ trung thành" của nhân dân.'
         ]
       },
       {
-        title: 'Lý tưởng Chủ nghĩa Xã hội',
-        text: 'Hình thái xã hội nhân văn nhất với cấu trúc tiến bộ vì ấm no con người.',
+        title: 'Các nguyên tắc xây dựng Đảng kiểu mới',
+        text: 'Nguyên tắc tổ chức và tự chỉnh đốn trong Đảng nhằm giữ vững tính chiến đấu và sức lãnh đạo.',
         list: [
-          'Quyền lực không thuộc thiều số, mà thuôc vào nhân dân lao động làm chủ.',
-          'Kinh tế vươn tầm, thịnh vượng, công bằng minh bạch là bệ phóng vút cao văn hoá.'
+          'Tập trung dân chủ là nguyên tắc tổ chức cơ bản.',
+          'Tự phê bình và phê bình: vũ khí rèn luyện Đảng; phải thực hiện thường xuyên.',
+          'Kỷ luật nghiêm minh, tự giác và đoàn kết thống nhất trong Đảng.',
+          'Mật thiết liên hệ với nhân dân; Đảng xa dân là tự sát.'
         ]
       },
       {
-        title: 'Động lực cất cánh CNXH',
-        text: 'Huy động nội - ngoại lực tạo đòn bẩy thép.',
+        title: 'Nhà nước của nhân dân',
+        text: 'Mọi quyền lực trong nước đều là của nhân dân; luật pháp bảo vệ quyền lợi nhân dân.',
         list: [
-          'Tài sản quý nhất để xây dựng kiến thiết chính là con người.',
-          'Tinh thần đại đoàn kết, đồng tâm hiệp lực chia sẻ lợi ích cá nhân, tập thể, quốc gia.'
+          'Nhân dân có quyền bầu và bãi nhiệm đại biểu không xứng đáng.',
+          'Luật pháp là công cụ để bảo vệ quyền lợi của nhân dân.'
         ]
       },
       {
-        title: 'Sự gắn kết máu thịt',
-        text: 'Không có độc lập sẽ không có cơ sở tiến đến CNXH, mà CNXH là pháo đài thép giữ vững Độc Lập.',
+        title: 'Nhà nước do nhân dân',
+        text: 'Nhà nước phải tạo điều kiện để nhân dân trực tiếp hoặc gián tiếp tham gia quản lý nhà nước.',
         list: [
-          'Độc lập là ngọn lửa tiên quyết mở đường.',
-          'CNXH là xi măng cốt thép bảo vệ vĩnh viễn quyền dân tộc tự quyết.'
+          'Nhân dân tham gia quản lý; việc gì có lợi cho dân, phải hết sức làm.',
+          'Nhà nước phải tạo điều kiện để dân thực hiện quyền làm chủ của mình.'
+        ]
+      },
+      {
+        title: 'Nhà nước vì nhân dân',
+        text: 'Nhà nước không có đặc quyền; cán bộ là công bộc phục vụ dân.',
+        list: [
+          'Cán bộ phải là công bộc; không có đặc quyền đặc lợi.',
+          'Phải chăm lo đời sống vật chất và tinh thần cho nhân dân.'
+        ]
+      },
+      {
+        title: 'Xây dựng Nhà nước có hiệu lực pháp lý mạnh mẽ',
+        text: 'Quản lý bằng pháp luật và kết hợp pháp trị với đức trị; coi trọng Hiến pháp và hệ thống pháp luật.',
+        list: [
+          'Quản lý bằng pháp luật: xây dựng Hiến pháp và hệ thống pháp luật (Hiến pháp 1946 là nền tảng).',
+          'Kết hợp pháp luật và đạo đức trong quản lý xã hội.'
+        ]
+      },
+      {
+        title: 'Xây dựng Nhà nước trong sạch, vững mạnh',
+        text: 'Chống tham nhũng, lãng phí và bệnh quan liêu; xây dựng đội ngũ cán bộ vừa có Đức vừa có Tài.',
+        list: [
+          'Đấu tranh chống "giặc nội xâm": tham nhũng, lãng phí, quan liêu.',
+          'Đội ngũ cán bộ: cần có "Cần, Kiệm, Liêm, Chính, Chí công vô tư".'
+        ]
+      },
+      {
+        title: 'Vận dụng trong giai đoạn hiện nay',
+        text: 'Áp dụng tư tưởng Hồ Chí Minh để chỉnh đốn Đảng và xây dựng Nhà nước phục vụ nhân dân.',
+        list: [
+          'Tiếp tục chỉnh đốn Đảng, nâng cao năng lực lãnh đạo và sức chiến đấu của Đảng.',
+          'Xây dựng Nhà nước pháp quyền xã hội chủ nghĩa của nhân dân, do nhân dân, vì nhân dân.',
+          'Đẩy mạnh cải cách hành chính và phòng chống tham nhũng theo tấm gương Bác.'
         ]
       }
     ]
@@ -495,8 +547,8 @@ const RenderTabsLayout = ({ section }) => {
     <TabsContainer>
       <TabsSidebar>
         {section.cards.map((card, index) => (
-          <TabButton 
-            key={index} 
+          <TabButton
+            key={index}
             $active={activeTab === index}
             onClick={() => setActiveTab(index)}
           >
@@ -505,7 +557,7 @@ const RenderTabsLayout = ({ section }) => {
           </TabButton>
         ))}
       </TabsSidebar>
-      
+
       <TabsContent>
         <AnimatePresence mode="wait">
           <TabContentPane
@@ -538,7 +590,7 @@ const RenderTabsLayout = ({ section }) => {
 const RenderLeftTimeline = ({ section }) => (
   <LeftTimelineContainer>
     {section.cards.map((card, index) => (
-      <TimelineRow 
+      <TimelineRow
         key={index}
         initial="hidden"
         whileInView="visible"
@@ -568,8 +620,8 @@ const ContentSections = () => {
   return (
     <>
       {sectionsData.map((section) => (
-        <SectionWrapper 
-          key={section.id} 
+        <SectionWrapper
+          key={section.id}
           id={section.id}
           $bg={section.bg}
         >
@@ -581,7 +633,7 @@ const ContentSections = () => {
               variants={sectionVariants}
             >
               <SectionNumber>{section.number}</SectionNumber>
-              <SectionTitle 
+              <SectionTitle
                 $dark={section.dark}
                 $black={section.black}
                 initial={{ opacity: 0, y: 30 }}
@@ -591,7 +643,7 @@ const ContentSections = () => {
               >
                 {section.title}
               </SectionTitle>
-              <SectionDescription 
+              <SectionDescription
                 $dark={section.dark}
                 $black={section.black}
                 initial={{ opacity: 0, y: 20 }}
@@ -608,7 +660,7 @@ const ContentSections = () => {
             ) : (
               <RenderTabsLayout section={section} />
             )}
-            
+
           </Container>
         </SectionWrapper>
       ))}
