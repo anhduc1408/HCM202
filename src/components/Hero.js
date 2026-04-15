@@ -186,7 +186,7 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const scrollToContent = () => {
-    const element = document.querySelector('#objectives');
+    const element = document.querySelector('#chapter1');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -194,14 +194,14 @@ const Hero = () => {
 
   return (
     <HeroWrapper id="home" ref={ref}>
-      <ParallaxBackground 
+      <ParallaxBackground
         style={{ y }}
       />
-      
+
       {/* Floating Icons */}
-      <FloatingIcon 
+      <FloatingIcon
         style={{ top: '15%', left: '10%' }}
-        animate={{ 
+        animate={{
           y: [0, -20, 0],
           rotate: [0, 10, -10, 0]
         }}
@@ -209,9 +209,9 @@ const Hero = () => {
       >
         📚
       </FloatingIcon>
-      <FloatingIcon 
+      <FloatingIcon
         style={{ top: '20%', right: '15%' }}
-        animate={{ 
+        animate={{
           y: [0, 20, 0],
           rotate: [0, -10, 10, 0]
         }}
@@ -219,9 +219,9 @@ const Hero = () => {
       >
         ⚖️
       </FloatingIcon>
-      <FloatingIcon 
+      <FloatingIcon
         style={{ bottom: '25%', left: '20%' }}
-        animate={{ 
+        animate={{
           y: [0, -15, 0],
           rotate: [0, 15, -15, 0]
         }}
@@ -229,9 +229,9 @@ const Hero = () => {
       >
         💰
       </FloatingIcon>
-      <FloatingIcon 
+      <FloatingIcon
         style={{ bottom: '30%', right: '10%' }}
-        animate={{ 
+        animate={{
           y: [0, 25, 0],
           rotate: [0, -15, 15, 0]
         }}
@@ -254,7 +254,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-         
+
           <span>Tư tưởng Hồ Chí Minh</span>
         </MainTitle>
 
@@ -271,8 +271,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <PrimaryButton 
-            href="#objectives"
+          <PrimaryButton
+            href='#chapter1'
             onClick={(e) => {
               e.preventDefault();
               scrollToContent();
@@ -282,7 +282,7 @@ const Hero = () => {
           >
             Khám phá ngay →
           </PrimaryButton>
-          <SecondaryButton 
+          <SecondaryButton
             href="#quiz"
             onClick={(e) => {
               e.preventDefault();
@@ -297,7 +297,7 @@ const Hero = () => {
         </ButtonGroup>
       </ContentWrapper>
 
-      <ScrollIndicator 
+      <ScrollIndicator
         style={{ opacity }}
         onClick={scrollToContent}
         initial={{ opacity: 0 }}

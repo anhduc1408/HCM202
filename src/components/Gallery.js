@@ -138,14 +138,14 @@ const GalleryLabel = styled.span`
 
 // Gallery items data
 const galleryItems = [
-  { icon: '📚', label: 'Giáo trình', color: 'linear-gradient(135deg, #1a365d, #2c5282)', image: 'https://down-vn.img.susercontent.com/file/sg-11134201-824iy-me19rlxvd2bnb0.webp' },
-  { icon: '⚖️', label: 'Quy luật kinh tế', color: 'linear-gradient(135deg, #c53030, #e53e3e)', image: 'https://www.vietnamworks.com/hrinsider/wp-content/uploads/2024/09/quy-luat-kinh-te-la-gi-3-650x478.jpg' },
-  { icon: '💰', label: 'Hàng hóa & Tiền tệ', color: 'linear-gradient(135deg, #d69e2e, #ecc94b)', image: 'https://cdn.luatvietnam.vn/uploaded/Images/Original/2023/03/13/tien-te-la-phuong-tien-de-do-luong-gia-tri-hang-hoa_1303111742.png' },
-  { icon: '🏭', label: 'Sản xuất', color: 'linear-gradient(135deg, #38a169, #48bb78)', image: 'https://pms.edu.vn/wp-content/uploads/2023/11/ket-cau-cua-phuong-thuc-san-xuat.jpg' },
-  { icon: '📊', label: 'Thị trường', color: 'linear-gradient(135deg, #3182ce, #4299e1)', image: 'https://thinkdigital.com.vn/wp-content/uploads/2025/02/thi-truong-la-gi-3.jpg' },
-  { icon: '🏦', label: 'Tư bản', color: 'linear-gradient(135deg, #553c9a, #6b46c1)', image: 'https://file.qdnd.vn/data/images/14/2021/06/10/kienthai/tuban%20luan%20bang%20tranh.jpg?dpi=150&quality=100&w=575' },
-  { icon: '🌐', label: 'Hội nhập', color: 'linear-gradient(135deg, #dd6b20, #ed8936)', image: 'https://bcp.cdnchinhphu.vn/334894974524682240/2025/4/11/hoi-nhap-quoc-te-1744336238273384856591.jpg' },
-  { icon: '🇻🇳', label: 'Việt Nam', color: 'linear-gradient(135deg, #c53030, #d63e3e)', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png' },
+  { icon: '📚', label: 'Giáo trình', color: 'linear-gradient(135deg, #1a365d, #2c5282)', image: 'https://www.nxbctqg.org.vn/img_data/images/238626889476_ttkc.jpg' },
+  { icon: '⚖️', label: 'Tư tưởng Hồ Chí Minh', color: 'linear-gradient(135deg, #c53030, #e53e3e)', image: 'https://nhandan.1cdn.vn/2025/08/19/cover-tu-tuong.png' },
+  { icon: '💰', label: 'Độc lập dân tộc gắn liền với chủ nghĩa xã hội', color: 'linear-gradient(135deg, #d69e2e, #ecc94b)', image: 'https://bthcm.hue.gov.vn/Portals/0/Medias/Nam2022/T11/14_17_11_2022_18_23_13_440_CH.jpg' },
+  { icon: '🏭', label: 'Nhà nước của dân, do dân, vì dân', color: 'linear-gradient(135deg, #38a169, #48bb78)', image: 'https://cdncongthuong.quangtrung.vn/static_files/thutra/images/2025/11/07/tt-hcm-ve-nn-cd56.jpg' },
+  { icon: '📊', label: 'Quá trình hình thành tư tưởng Hồ Chí Minh', color: 'linear-gradient(135deg, #3182ce, #4299e1)', image: 'https://i.pinimg.com/originals/8a/41/66/8a4166421470b49f7df48c955bbb13af.png' },
+  { icon: '🏦', label: 'Nhà nước xã hội chủ nghĩa', color: 'linear-gradient(135deg, #553c9a, #6b46c1)', image: 'https://btgdv.cantho.gov.vn/uploads/news/2022_09/30-9-bac.jpeg' },
+  { icon: '🌐', label: 'Hồ Chí Minh', color: 'linear-gradient(135deg, #dd6b20, #ed8936)', image: 'https://congdoangdvn.org.vn/Uploaded/images/Ho%20Chi%20Minh_19-5.jpg' },
+  { icon: '🇻🇳', label: 'Việt Nam', color: 'linear-gradient(135deg, #c53030, #d63e3e)', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/3840px-Flag_of_Vietnam.svg.png' },
 ];
 
 
@@ -175,7 +175,7 @@ const Gallery = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Các khái niệm và sơ đồ minh họa cho chương V: Kinh tế thị trường định hướng xã hội chủ nghĩa và các quan hệ lợi ích kinh tế ở Việt Nam
+            Các hình ảnh và sơ đồ minh họa cho chủ đề 1, 2, 3 của môn HCM202 – Tư tưởng Hồ Chí Minh.
           </SectionDescription>
         </SectionHeader>
 
