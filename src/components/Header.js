@@ -8,23 +8,22 @@ const HeaderWrapper = styled(motion.header)`
   left: 0;
   right: 0;
   z-index: 1000;
-  background: ${({ $scrolled, theme }) => 
+  background: ${({ $scrolled, theme }) =>
     $scrolled ? 'rgba(255, 255, 255, 0.98)' : 'transparent'};
-  box-shadow: ${({ $scrolled, theme }) => 
+  box-shadow: ${({ $scrolled, theme }) =>
     $scrolled ? theme.shadows.md : 'none'};
   transition: all ${({ theme }) => theme.transitions.normal};
-  backdrop-filter: ${({ $scrolled }) => 
+  backdrop-filter: ${({ $scrolled }) =>
     $scrolled ? 'blur(10px)' : 'none'};
 `;
 
 const NavContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${({ theme }) => 
-    `${
-      typeof window !== 'undefined' && window.scrollY > 50 
-        ? theme.spacing.sm 
-        : theme.spacing.md
+  padding: ${({ theme }) =>
+    `${typeof window !== 'undefined' && window.scrollY > 50
+      ? theme.spacing.sm
+      : theme.spacing.md
     } ${theme.spacing.lg}`};
   display: flex;
   justify-content: space-between;
@@ -39,7 +38,7 @@ const Logo = styled(motion.div)`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: 700;
-  color: ${({ $scrolled, theme }) => 
+  color: ${({ $scrolled, theme }) =>
     $scrolled ? theme.colors.primary : theme.colors.textWhite};
   cursor: pointer;
   background: transparent;
@@ -69,7 +68,7 @@ const NavMenu = styled.nav`
 `;
 
 const NavLink = styled(motion.a)`
-  color: ${({ $scrolled, theme }) => 
+  color: ${({ $scrolled, theme }) =>
     $scrolled ? theme.colors.textPrimary : theme.colors.textWhite};
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSizes.sm};
@@ -101,7 +100,7 @@ const NavLink = styled(motion.a)`
 const MobileMenuButton = styled(motion.button)`
   display: none;
   background: none;
-  color: ${({ $scrolled, theme }) => 
+  color: ${({ $scrolled, theme }) =>
     $scrolled ? theme.colors.primary : theme.colors.textWhite};
   font-size: ${({ theme }) => theme.fontSizes['2xl']};
   padding: ${({ theme }) => theme.spacing.sm};
@@ -158,9 +157,9 @@ const Overlay = styled(motion.div)`
 
 const navItems = [
   { name: 'Trang chủ', href: '#home' },
-  { name: 'Khái niệm & Đối tượng', href: '#chapter1' },
-  { name: 'Quá trình hình thành', href: '#chapter2' },
-  { name: 'Độc lập & CNXH', href: '#chapter3' },
+  { name: 'Quá trình hình thành', href: '#chapter1' },
+  { name: 'Độc lập dân tộc & CNXH', href: '#chapter2' },
+  { name: 'ĐCSVN & Nhà nước của dân, do dân, vì dân', href: '#chapter3' },
   { name: 'Quiz', href: '#quiz' },
 ];
 
@@ -187,31 +186,31 @@ const Header = () => {
 
   return (
     <>
-      <HeaderWrapper 
+      <HeaderWrapper
         $scrolled={scrolled}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <NavContainer>
-          <Logo 
+          <Logo
             $scrolled={scrolled}
             onClick={() => scrollToSection('#home')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{ background: 'transparent', boxShadow: 'none' }}
           >
-            <img 
-              src="https://lh3.googleusercontent.com/proxy/Cx0zJdx79vwUQq69naXdUyai0FOFtnge2bBq1-wX37vgzvvqn6osroCkrR5WGhs2EX2AsKQfjXdpN6QuXWrZNkI5X5CWm5oDTlp-MQe-DW8ksUdiIKR3zYYzip_AuqjpaQNdjIKrfMtPO5AJCZqn_qrcrUohwg" 
-              alt="Logo" 
-              style={{ width: '60px', height: '60px', objectFit: 'contain', background: 'transparent' }} 
+            <img
+              src="https://lh3.googleusercontent.com/proxy/Cx0zJdx79vwUQq69naXdUyai0FOFtnge2bBq1-wX37vgzvvqn6osroCkrR5WGhs2EX2AsKQfjXdpN6QuXWrZNkI5X5CWm5oDTlp-MQe-DW8ksUdiIKR3zYYzip_AuqjpaQNdjIKrfMtPO5AJCZqn_qrcrUohwg"
+              alt="Logo"
+              style={{ width: '60px', height: '60px', objectFit: 'contain', background: 'transparent' }}
             />
-           
+
           </Logo>
 
           <NavMenu>
             {navItems.slice(0, 7).map((item, index) => (
-              <NavLink 
+              <NavLink
                 key={item.name}
                 href={item.href}
                 $scrolled={scrolled}
@@ -228,7 +227,7 @@ const Header = () => {
             ))}
           </NavMenu>
 
-          <MobileMenuButton 
+          <MobileMenuButton
             $scrolled={scrolled}
             onClick={() => setMobileMenuOpen(true)}
             whileTap={{ scale: 0.9 }}
@@ -241,7 +240,7 @@ const Header = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
-            <Overlay 
+            <Overlay
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

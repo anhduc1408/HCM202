@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
+import { image } from 'framer-motion/client';
 
 // --- STYLED COMPONENTS FOR CONTAINERS & HEADERS ---
 const SectionWrapper = styled.section`
@@ -304,6 +305,13 @@ const TimelineCardText = styled.p`
   font-weight: 500;
 `;
 
+const TimeLineCardImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  margin-top: ${({ theme }) => theme.spacing.lg};
+  display: block;
+`;
 
 // --- ANIMATION VARIANTS ---
 const sectionVariants = {
@@ -338,6 +346,7 @@ const sectionsData = [
       {
         title: 'Cơ sở thực tiễn',
         text: 'Trong nước: Cuối thế kỷ XIX - đầu thế kỷ XX, thực dân Pháp xâm lược khiến xã hội biến đổi. Thế giới: Chủ nghĩa đế quốc và Cách mạng Tháng Mười Nga (1917) mở ra con đường giải phóng mới.',
+        image: require('../images/thời kì thực dận Pháp.png'),
         list: [
           'Trong nước: Các phong trào yêu nước (Cần Vương, Đông Du...) lần lượt thất bại.',
           'Yêu cầu cấp bách: tìm con đường cứu nước mới phù hợp với thực tiễn dân tộc.',
@@ -348,6 +357,7 @@ const sectionsData = [
       {
         title: 'Cơ sở lý luận',
         text: 'Sự kết hợp giữa truyền thống dân tộc, tinh hoa văn hóa nhân loại và Chủ nghĩa Mác–Lênin làm nền tảng lý luận cho tư tưởng Hồ Chí Minh.',
+        image: require('../images/Nguyễn Ái Quốc tại Paris (1919-1920).jpg'),
         list: [
           'Truyền thống dân tộc: yêu nước, đoàn kết, nhân nghĩa.',
           'Tinh hoa phương Đông: Nho giáo (đạo đức, trọng hiền tài), Phật giáo (từ bi, bình đẳng), Lão giáo (hòa hợp với tự nhiên).',
@@ -359,6 +369,7 @@ const sectionsData = [
       {
         title: 'Nhân tố chủ quan Hồ Chí Minh',
         text: 'Những phẩm chất cá nhân và năng lực tư tưởng của Hồ Chí Minh là nhân tố quyết định trong quá trình vận dụng lý luận vào thực tiễn.',
+        image: require('../images/Trang báo Người cùng khổ.jpg'),
         list: [
           'Tư duy độc lập, sáng tạo, có tầm nhìn quốc tế.',
           'Lòng yêu nước sâu sắc và ý chí giải phóng dân tộc mãnh liệt.',
@@ -368,6 +379,7 @@ const sectionsData = [
       {
         title: 'Quá trình hình thành và phát triển',
         text: 'Những mốc lịch sử chính đánh dấu quá trình chuyển biến từ yêu nước truyền thống sang đường lối cách mạng vô sản.',
+        image: require('../images/bản đồ hành trình 30 năm cứu nước của Bác.webp'),
         list: [
           '1890–1911: Hình thành lòng yêu nước và chí hướng cứu nước mới.',
           '1911–1920: Ra đi tìm đường cứu nước, khảo sát thực tế thế giới; mốc 7/1920 đọc Luận cương của Lênin — "Hạnh phúc là đây, cơm áo là đây!".',
@@ -379,6 +391,7 @@ const sectionsData = [
       {
         title: 'Giá trị tư tưởng Hồ Chí Minh',
         text: 'Tư tưởng Hồ Chí Minh có giá trị lý luận và thực tiễn sâu sắc đối với Việt Nam và phong trào giải phóng dân tộc toàn cầu.',
+        image: require('../images/Yêu sách của nhân dân An Nam.webp'),
         list: [
           'Với Việt Nam: là nền tảng tư tưởng, kim chỉ nam cho hành động của Đảng và dân tộc.',
           'Với thế giới: mở ra con đường giải phóng cho các dân tộc bị áp bức và đóng góp vào tiến bộ xã hội toàn cầu.'
@@ -397,6 +410,7 @@ const sectionsData = [
       {
         title: 'Độc lập dân tộc',
         text: 'Độc lập là quyền thiêng liêng, gắn liền với hạnh phúc của nhân dân và quyền tự quyết quốc gia.',
+        image: require('../images/Bác Hồ tại Quảng trường Ba Đình 2.9.1945.jpg'),
         list: [
           '"Không có gì quý hơn độc lập, tự do" — quan điểm cốt lõi.',
           'Độc lập phải gắn với hạnh phúc: dân có cơm ăn, áo mặc, được học hành.',
@@ -407,6 +421,7 @@ const sectionsData = [
       {
         title: 'Cách mạng giải phóng dân tộc',
         text: 'Giải phóng dân tộc phải là cách mạng do Đảng Cộng sản lãnh đạo, dựa trên liên minh toàn dân và phương pháp chiến lược sáng tạo.',
+        image: require('../images/Lời kêu gọi toàn quốc kháng chiến 1946.jpg'),
         list: [
           'Muốn cứu nước không có con đường nào khác ngoài cách mạng vô sản.',
           'Đảng Cộng sản lãnh đạo: Đảng vững cách mệnh mới thành công.',
@@ -417,6 +432,7 @@ const sectionsData = [
       {
         title: 'Chủ nghĩa xã hội',
         text: 'CNXH là xã hội do nhân dân làm chủ, vì con người, thực hiện công bằng và văn minh.',
+        image: require('../images/Lực lượng là toàn dân.webp'),
         list: [
           'Mục tiêu: dân giàu, nước mạnh, dân chủ, công bằng, văn minh.',
           'Bản chất: nhân dân làm chủ; xã hội vì con người.',
@@ -426,6 +442,7 @@ const sectionsData = [
       {
         title: 'Mục tiêu và động lực xây dựng CNXH',
         text: 'Xác định mục tiêu quốc gia và những động lực then chốt để tiến lên CNXH.',
+        image: require('../images/Ảnh Bác Hồ thăm xưởng máy - liên minh Công - Nông - Trí.jpg'),
         list: [
           'Mục tiêu: xây dựng Việt Nam hòa bình, độc lập, thống nhất, giàu mạnh.',
           'Động lực: con người là trung tâm; đại đoàn kết toàn dân; khoa học — công nghệ; vai trò cán bộ, đảng viên.'
@@ -434,6 +451,7 @@ const sectionsData = [
       {
         title: 'Thời kỳ quá độ lên CNXH',
         text: 'Đặc điểm, nhiệm vụ và nguyên tắc trong thời kỳ quá độ lên CNXH ở Việt Nam.',
+        image: require('../images/Bác bắt tay kêu gọi đoàn kết dân tộc.gif'),
         list: [
           'Việt Nam tiến lên CNXH từ một nước nông nghiệp lạc hậu, có lộ trình đặc thù.',
           'Nhiệm vụ: xây dựng xã hội mới trên mọi lĩnh vực; cải tạo tàn dư của xã cũ.',
@@ -443,6 +461,7 @@ const sectionsData = [
       {
         title: 'Quan hệ giữa độc lập dân tộc và CNXH',
         text: 'Độc lập dân tộc và CNXH là hai mục tiêu gắn bó chặt chẽ trong tư tưởng Hồ Chí Minh.',
+        image: require('../images/514364006_762151413043928_7403237664878971768_n.jpg'),
         list: [
           'Độc lập dân tộc là tiền đề để tiến lên CNXH.',
           'CNXH là bảo đảm vững chắc nhất cho độc lập dân tộc.',
@@ -462,6 +481,7 @@ const sectionsData = [
       {
         title: 'Tính tất yếu và vai trò lãnh đạo của Đảng',
         text: 'Đảng là nhân tố quyết định mọi thắng lợi của cách mạng Việt Nam.',
+        image: require('../images/1-20853918345807912188040.webp'),
         list: [
           'Tính tất yếu: Đảng cách mạng là điều kiện tiên quyết cho cách mạng.',
           'Sự ra đời của Đảng: kết hợp Chủ nghĩa Mác-Lênin, phong trào công nhân và phong trào yêu nước.'
@@ -470,6 +490,7 @@ const sectionsData = [
       {
         title: 'Bản chất và quy luật tồn tại của Đảng',
         text: 'Đảng là đội tiên phong của giai cấp công nhân và đại diện lợi ích của nhân dân lao động.',
+        image: require('../images/3-19267732127665856943248-17819334398295738022226.webp'),
         list: [
           'Đảng đại diện cho lợi ích của toàn dân tộc.',
           'Đảng lãnh đạo Nhà nước và xã hội nhưng phải là "đầy tớ trung thành" của nhân dân.'
@@ -478,6 +499,7 @@ const sectionsData = [
       {
         title: 'Các nguyên tắc xây dựng Đảng kiểu mới',
         text: 'Nguyên tắc tổ chức và tự chỉnh đốn trong Đảng nhằm giữ vững tính chiến đấu và sức lãnh đạo.',
+        image: require('../images/Were.jpg'),
         list: [
           'Tập trung dân chủ là nguyên tắc tổ chức cơ bản.',
           'Tự phê bình và phê bình: vũ khí rèn luyện Đảng; phải thực hiện thường xuyên.',
@@ -488,6 +510,7 @@ const sectionsData = [
       {
         title: 'Nhà nước của nhân dân',
         text: 'Mọi quyền lực trong nước đều là của nhân dân; luật pháp bảo vệ quyền lợi nhân dân.',
+        image: require('../images/641298076_1490170922833467_7138226645180462407_n.jpg'),
         list: [
           'Nhân dân có quyền bầu và bãi nhiệm đại biểu không xứng đáng.',
           'Luật pháp là công cụ để bảo vệ quyền lợi của nhân dân.'
@@ -496,6 +519,7 @@ const sectionsData = [
       {
         title: 'Nhà nước do nhân dân',
         text: 'Nhà nước phải tạo điều kiện để nhân dân trực tiếp hoặc gián tiếp tham gia quản lý nhà nước.',
+        image: require('../images/bau-o-hn.jpg'),
         list: [
           'Nhân dân tham gia quản lý; việc gì có lợi cho dân, phải hết sức làm.',
           'Nhà nước phải tạo điều kiện để dân thực hiện quyền làm chủ của mình.'
@@ -504,6 +528,7 @@ const sectionsData = [
       {
         title: 'Nhà nước vì nhân dân',
         text: 'Nhà nước không có đặc quyền; cán bộ là công bộc phục vụ dân.',
+        image: require('../images/bao-quoc-hoi.jpg'),
         list: [
           'Cán bộ phải là công bộc; không có đặc quyền đặc lợi.',
           'Phải chăm lo đời sống vật chất và tinh thần cho nhân dân.'
@@ -512,6 +537,7 @@ const sectionsData = [
       {
         title: 'Xây dựng Nhà nước có hiệu lực pháp lý mạnh mẽ',
         text: 'Quản lý bằng pháp luật và kết hợp pháp trị với đức trị; coi trọng Hiến pháp và hệ thống pháp luật.',
+        image: require('../images/tc6b0-tc6b0e1bb9fng-he1bb93-chc3ad-minh.png'),
         list: [
           'Quản lý bằng pháp luật: xây dựng Hiến pháp và hệ thống pháp luật (Hiến pháp 1946 là nền tảng).',
           'Kết hợp pháp luật và đạo đức trong quản lý xã hội.'
@@ -520,6 +546,7 @@ const sectionsData = [
       {
         title: 'Xây dựng Nhà nước trong sạch, vững mạnh',
         text: 'Chống tham nhũng, lãng phí và bệnh quan liêu; xây dựng đội ngũ cán bộ vừa có Đức vừa có Tài.',
+        image: require('../images/tuyen-the.jpg'),
         list: [
           'Đấu tranh chống "giặc nội xâm": tham nhũng, lãng phí, quan liêu.',
           'Đội ngũ cán bộ: cần có "Cần, Kiệm, Liêm, Chính, Chí công vô tư".'
@@ -528,6 +555,7 @@ const sectionsData = [
       {
         title: 'Vận dụng trong giai đoạn hiện nay',
         text: 'Áp dụng tư tưởng Hồ Chí Minh để chỉnh đốn Đảng và xây dựng Nhà nước phục vụ nhân dân.',
+        image: require('../images/Sơ đồ tư duy.jpg'),
         list: [
           'Tiếp tục chỉnh đốn Đảng, nâng cao năng lực lãnh đạo và sức chiến đấu của Đảng.',
           'Xây dựng Nhà nước pháp quyền xã hội chủ nghĩa của nhân dân, do nhân dân, vì nhân dân.',
@@ -572,6 +600,9 @@ const RenderTabsLayout = ({ section }) => {
             </ContentHeader>
             <ContentBody>
               <p>{section.cards[activeTab].text}</p>
+              {section.cards[activeTab].image && (
+                <TimeLineCardImage src={section.cards[activeTab].image} alt={section.cards[activeTab].title} />
+              )}
               {section.cards[activeTab].list && (
                 <List>
                   {section.cards[activeTab].list.map((item, i) => (
@@ -603,6 +634,10 @@ const RenderLeftTimeline = ({ section }) => (
         <TimelineDotIndicator />
         <TimelineContentCard>
           <TimelineCardText>{card.text}</TimelineCardText>
+          {card.image && (
+            <TimeLineCardImage src={card.image} alt={card.title} />
+          )}
+
           {card.list && (
             <List>
               {card.list.map((item, i) => (

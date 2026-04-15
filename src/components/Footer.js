@@ -215,29 +215,29 @@ const FooterBottomLinks = styled.div`
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <FooterWrapper>
       <Container>
         <FooterContent>
           <FooterBrand>
             <Logo>
-             
+
             </Logo>
             <BrandDescription>
               Website trình bày nội dung môn HCM202 – Tư tưởng Hồ Chí Minh.
-              
+
             </BrandDescription>
-            
-             
+
+
           </FooterBrand>
 
           <FooterColumn>
             <ColumnTitle>Nội dung</ColumnTitle>
             <FooterLinks>
-              <FooterLink><a href="#chapter1">Khái niệm & Đối tượng</a></FooterLink>
-              <FooterLink><a href="#chapter2">Quá trình hình thành</a></FooterLink>
-              <FooterLink><a href="#chapter3">Độc lập dân tộc & CNXH</a></FooterLink>
+              <FooterLink><a href="#chapter1">Cơ sở & quá trình hình thành Tư tưởng Hồ Chí Minh</a></FooterLink>
+              <FooterLink><a href="#chapter2">Độc lập dân tộc & chủ nghĩa xã hội</a></FooterLink>
+              <FooterLink><a href="#chapter3">Nhà nước của dân, do dân, vì dân</a></FooterLink>
             </FooterLinks>
           </FooterColumn>
 
@@ -249,9 +249,9 @@ const Footer = () => {
           </FooterColumn>
 
           <FooterColumn>
-           
-          
-            
+
+
+
             <ContactItem>
               <span>📍</span>
               FPT University, Hà Nội
