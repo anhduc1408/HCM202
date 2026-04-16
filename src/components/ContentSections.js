@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { image } from 'framer-motion/client';
 
 // --- STYLED COMPONENTS FOR CONTAINERS & HEADERS ---
 const SectionWrapper = styled.section`
