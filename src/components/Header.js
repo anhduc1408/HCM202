@@ -201,7 +201,7 @@ const Header = () => {
             style={{ background: 'transparent', boxShadow: 'none' }}
           >
             <img
-              src="https://lh3.googleusercontent.com/proxy/Cx0zJdx79vwUQq69naXdUyai0FOFtnge2bBq1-wX37vgzvvqn6osroCkrR5WGhs2EX2AsKQfjXdpN6QuXWrZNkI5X5CWm5oDTlp-MQe-DW8ksUdiIKR3zYYzip_AuqjpaQNdjIKrfMtPO5AJCZqn_qrcrUohwg"
+              src="https://img1.kienthucvui.vn/uploads/2019/08/15/bac-ho_103550328.jpg"
               alt="Logo"
               style={{ width: '60px', height: '60px', objectFit: 'contain', background: 'transparent' }}
             />
